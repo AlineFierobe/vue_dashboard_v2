@@ -11,6 +11,4 @@ export default {
 };
 </script>
 
-<style lang="sass">
-@import "../../assets/sass/footer.scss";
-</style>
+<style lang="sass"></style>

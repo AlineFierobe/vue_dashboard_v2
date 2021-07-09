@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from "./views/utils/Header";
-import Footer from "./views/utils/Footer";
+import Header from "./views/utils/components/Header";
+import Footer from "./views/utils/components/Footer";
 
 export default {
   name: "App",
@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./assets/sass/app.scss";
+@import "./assets/sass/style.scss";
 </style>
