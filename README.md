@@ -1,6 +1,6 @@
 # myDashboard version 1.0
 
-[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/cc-by-nd.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/cc-0.svg)](http://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/made-with-vue.svg)](http://forthebadge.com)
 
 Organize your work with a custom Dashboard, register your projects, tasks and meetings with deadline and optimize your workflow
 
@@ -29,4 +29,4 @@ Organize your work with a custom Dashboard, register your projects, tasks and me
 
 ## Licence
 
-This project is under `CC-BY-ND` licence
+This project is under `Zero` licence, you can use it for yourself
