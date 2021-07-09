@@ -11,13 +11,13 @@ Organize your work with a custom Dashboard, register your projects, tasks and me
 
 ## How to start
 
-_first_: clone the repo on your machine
-_second_: run the command `npm install` to get all dependencies
-_third_: run the command `npm run serve` to lunch the project on your machine
+- _first_: clone the repo on your machine
+- _second_: run the command `npm install` to get all dependencies
+- _third_: run the command `npm run serve` to lunch the project on your machine
 
 ## Build with
 
-- [VSCode] - text editor
+- VSCode - text editor
 
 ## Versions
 
