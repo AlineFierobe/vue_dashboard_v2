@@ -1,4 +1,16 @@
+import ajaxService from "../../config/ajaxService";
+
 export default {
+  fetchUser(context){
+    ajaxService
+      .getRead('readUser')
+      .then(promise => {
+        const data = promise;
+        context.commit('displayUser', data);
+      })
+      .catch( err => console.log(err));
+  }
+
   // async trySignin(context, credentials) {
   //   try {
   //     context.commit("updateIsLoading", true);

@@ -1,5 +1,3 @@
-// TO UPDATE
-
 // link to back end
 const host = "https://backdashboard.alinefierobe.com/";
 
