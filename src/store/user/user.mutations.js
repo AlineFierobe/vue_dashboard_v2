@@ -31,5 +31,9 @@ export default {
   fetchCurrentUser(state, user) {
     delete user.password;
     state.datas = user;
+  },
+
+  updateUser(state, user) {
+    state.datas = user;
   }
 }

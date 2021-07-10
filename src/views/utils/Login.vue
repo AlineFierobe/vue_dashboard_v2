@@ -2,7 +2,7 @@
   <!-- MAIN CONTAINER -->
   <div class="main-container">
     <!-- START FORM -->
-    <form method="POST" class="myForm" @submit.prevent="trySubmit">
+    <form method="POST" class="myForm flex-center" @submit.prevent="trySubmit">
       <h2 class="title">Connexion</h2>
       <div class="one-col">
         <div>

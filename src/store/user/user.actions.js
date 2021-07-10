@@ -73,5 +73,50 @@ export default {
     catch (err) {
       context.commit("signError", err);
     }
+  },
+
+  async updateUser(context, data) {
+    try {
+      // Object FormData to set parameters
+      let params = new FormData();
+      params.append("id", data.id);
+      params.append("firstName", data.firstName);
+      params.append("lastName", data.lastName);
+      params.append("more", data.more);
+      params.append("icon", data.icon);
+      // call ajax service
+      ajaxService
+        .maj("updateUser", params)
+        .then((promise) => {
+          console.log(promise);
+          // Redirect to profile page
+          router.push('/profile');
+        })
+        .catch((error) => console.log(error));
+
+    } catch (err) {
+      context.commit("signError", err);
+    }
+  },
+
+  async updatePassword(context, data) {
+    try {
+      // Object FormData to set parameters
+      let params = new FormData();
+      params.append("id", data.id);
+      params.append("password", data.password);
+      // call ajax service
+      ajaxService
+        .maj("updatePassword", params)
+        .then((promise) => {
+          console.log(promise);
+          // Redirect to profile page
+          router.push('/profile');
+        })
+        .catch((error) => console.log(error));
+
+    } catch (err) {
+      context.commit("signError", err);
+    }
   }
 }

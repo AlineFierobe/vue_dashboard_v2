@@ -182,7 +182,7 @@ const routes = [
   },
   {
     path: "/update-password/:id",
-    name: "UdaptePassword",
+    name: "UpdatePassword",
     component: UpdatePassword
   }
 ]

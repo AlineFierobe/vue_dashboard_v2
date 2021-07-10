@@ -1,9 +1,38 @@
 <template>
-  <div class="main-container">
-    <h2 class="title">Mon Profil</h2>
-    <router-link to="/logout">
-      déconnexion
-    </router-link>
+  <div class="small-container">
+    <div class="title-add">
+      <h2>Mon Profil</h2>
+      <router-link to="/logout" class="btn-dark">
+        déconnexion
+      </router-link>
+    </div>
+    <!-- ID CARD -->
+    <div class="bloc-profile">
+      <img :src="datas.icon" alt="avatar" class="img" />
+      <div class="name">{{ datas.firstName + " " + datas.lastName }}</div>
+      <div class="job">{{ datas.more }}</div>
+    </div>
+    <!-- UPDATE BUTTONS -->
+    <div class="update-profile">
+      <router-link
+        class="btn-dark"
+        :to="{
+          name: 'UpdatePassword',
+          params: { id: datas.id },
+        }"
+      >
+        modifier le mot de passe
+      </router-link>
+      <router-link
+        class="btn-dark"
+        :to="{
+          name: 'UpdateUser',
+          params: { id: datas.id },
+        }"
+      >
+        modifier les infos
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -12,16 +41,57 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "Profile",
   data() {
-    return {};
+    return {
+      id: localStorage.getItem("user"),
+    };
   },
   computed: {
     ...mapState("user", ["datas"]),
   },
   methods: {
-    ...mapMutations("user", ["displayUser"]),
+    ...mapMutations("user", ["fetchCurrentUser"]),
   },
   created() {
-    this.$store.dispatch("user/fetchUser");
+    this.$store.dispatch("user/fetchCurrentUser", this.id);
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "../../assets/sass/style.scss";
+.bloc-profile {
+  width: 70%;
+  margin: 2rem auto;
+  height: 60%;
+  background: $gray;
+  border-radius: 20px;
+  padding: 2rem;
+  display: grid;
+  grid:
+    "img name" 1fr
+    "job job" 1fr
+    / auto 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  .img {
+    grid-area: img;
+    width: 12rem;
+    height: 12rem;
+  }
+  .name {
+    grid-area: name;
+    font-size: 3rem;
+  }
+  .job {
+    grid-area: job;
+    font-size: 2rem;
+  }
+}
+.update-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+</style>
