@@ -1,5 +1,5 @@
 // link to back end
-const host = "https://backdashboard.alinefierobe.com/";
+const host = "http://localhost:8888/backend/back-dashboard_v2";
 
 export default {
   // all programs needed
@@ -40,4 +40,5 @@ export default {
 
   // meeting and task types
   readMeetingType: host + "/read/readType.php",
+  readTaskType: host + "/read/readTypeTask.php",
 };
