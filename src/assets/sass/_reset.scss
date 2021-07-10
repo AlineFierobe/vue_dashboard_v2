@@ -1,14 +1,14 @@
 /* RESET BY DEFAULT */
 html {
   font-size: 62.5%; // 1rem = 10px
+  font-family: $text;
+  color: $dark;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 1.6rem;
-  font-family: $text;
-  color: $dark;
 }
 a {
   color: $dark;

@@ -35,3 +35,132 @@
     border: 1px solid $red;
   }
 }
+
+/* MAIN BLOC */
+.main-container {
+  height: 90%;
+  background: $back;
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* BLOC TITLE */
+.title {
+  // only tutle
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.title-date-status {
+  // title with date/deadline and status
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  h2 {
+    text-transform: uppercase;
+    font-size: 3rem;
+  }
+  .date {
+    margin: 0 2rem;
+  }
+}
+.title-add {
+  // title with btn add
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  h2 {
+    text-transform: uppercase;
+    font-size: 3rem;
+  }
+  h3,
+  h4,
+  h5 {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
+  i {
+    font-size: 2rem;
+  }
+}
+
+/* SPECIAL MESSAGE */
+.warning {
+  // error or warning
+  color: $red;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* FORMS */
+.myForm {
+  margin: auto;
+  height: 94%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .one-col,
+  .two-col,
+  .three-col {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+    div {
+      display: flex;
+      flex-direction: column;
+      label {
+        text-transform: uppercase;
+        font-weight: 700;
+        text-align: center;
+      }
+      input,
+      select {
+        height: 3.5rem;
+        font-family: $text;
+        padding: 1rem;
+      }
+      textarea.small {
+        height: 10rem;
+        font-family: $text;
+        padding: 1rem;
+      }
+      textarea.medium {
+        height: 15rem;
+        font-family: $text;
+        padding: 1rem;
+      }
+      textarea.large {
+        height: 20rem;
+        font-family: $text;
+        padding: 1rem;
+      }
+    }
+  }
+  .one-col {
+    grid-template-columns: 1fr;
+  }
+  .two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+  .three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .one-btn {
+    text-align: center;
+  }
+  .two-btn,
+  .three-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .two-btn {
+    justify-content: space-evenly;
+  }
+  .three-btn {
+    justify-content: space-between;
+  }
+}
