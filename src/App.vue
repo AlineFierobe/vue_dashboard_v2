@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-    <Header />
-    <main class="main">
-      <router-view />
-    </main>
-    <Footer />
+    <div id="body" v-for="site in datas" :key="site.id">
+      <Header :siteName="site.siteName" :isLoggedIn="isLoggedIn" />
+      <main class="main">
+        <router-view />
+      </main>
+      <Footer
+        :siteName="site.siteName"
+        :devName="site.devName"
+        :devSite="site.devSite"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 import Header from "./views/utils/components/Header.vue";
 import Footer from "./views/utils/components/Footer.vue";
 
@@ -19,7 +26,22 @@ export default {
     Footer,
   },
   data() {
-    return {};
+    return {
+      siteName: "",
+      devName: "",
+      devSite: "",
+      isLoggedIn: false,
+    };
+  },
+  computed: {
+    ...mapState("website", ["datas"]),
+  },
+  methods: {
+    ...mapMutations("website", ["displayWebsite"]),
+  },
+
+  created() {
+    this.$store.dispatch("website/fetchWebsite");
   },
 };
 </script>

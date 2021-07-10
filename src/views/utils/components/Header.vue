@@ -1,31 +1,23 @@
 <template>
-  <div>
-    <h1>mes Users</h1>
-    <ul v-for="user in datas" :key="user.id">
-      <li>
-        {{ user.firstName }}
-      </li>
-    </ul>
-  </div>
+  <header class="header">
+    <h1>{{ siteName }}</h1>
+    <nav>
+      <ul v-if="isLoggedIn">
+        <li>déconnexion</li>
+      </ul>
+      <ul v-else>
+        <li>connexion</li>
+      </ul>
+    </nav>
+  </header>
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
-
 export default {
   name: "Header",
+  props: ["siteName", "isLoggedIn"],
   data() {
     return {};
-  },
-  computed: {
-    ...mapState("user", ["datas"]),
-  },
-  methods: {
-    ...mapMutations("user", ["displayUser"]),
-  },
-
-  created() {
-    this.$store.dispatch("user/fetchUser");
   },
 };
 </script>
