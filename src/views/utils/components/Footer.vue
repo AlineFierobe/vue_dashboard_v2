@@ -18,4 +18,11 @@ export default {
 };
 </script>
 
-<style lang="sass"></style>
+<style lang="scss">
+@import "../../../assets/sass/style.scss";
+.footer {
+  background: $back;
+  padding: 1rem;
+  text-align: center;
+}
+</style>
