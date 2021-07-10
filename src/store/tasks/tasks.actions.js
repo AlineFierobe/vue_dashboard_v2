@@ -7,6 +7,7 @@ export default {
       .then((promise) => {
         const data = promise;
         context.commit('displayTasks', data)
+        // console.log(data);
       })
       .catch((error) => console.log(error));
   }
