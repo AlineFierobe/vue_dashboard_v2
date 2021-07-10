@@ -3,7 +3,7 @@
   min-width: 15rem;
   display: inline-block;
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: $br;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
@@ -41,6 +41,14 @@
   height: 90%;
   background: $back;
   width: 90%;
+  margin: auto;
+  padding: 2rem;
+}
+
+.small-container {
+  height: 90%;
+  background: $back;
+  width: 50%;
   margin: auto;
   padding: 2rem;
 }
@@ -93,21 +101,25 @@
   text-align: center;
 }
 
-/* FORMS */
-.myForm {
-  margin: auto;
-  height: 94%;
+/* FLEX CENTER */
+.flex-center {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+/* FORMS */
+.myForm {
+  margin: auto;
+  height: 94%;
   .one-col,
   .two-col,
   .three-col {
     width: 100%;
     display: grid;
-    gap: 1rem;
-    margin: 1rem 0;
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: center;
     div {
       display: flex;
       flex-direction: column;
@@ -153,6 +165,7 @@
   }
   .two-btn,
   .three-btn {
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
