@@ -1,0 +1,37 @@
+/* BUTTON */
+.btn {
+  min-width: 15rem;
+  display: inline-block;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  margin: 1rem;
+  &-dark {
+    @extend .btn;
+    background: $dark;
+    color: $light;
+    border: 1px solid $dark;
+    cursor: pointer;
+  }
+  &-light {
+    @extend .btn;
+    background: $light;
+    color: $dark;
+    border: 1px solid $dark;
+    cursor: pointer;
+  }
+  &-green {
+    @extend .btn;
+    background: $green;
+    color: $light;
+    border: 1px solid $green;
+  }
+  &-red {
+    @extend .btn;
+    background: $red;
+    color: $light;
+    border: 1px solid $red;
+  }
+}

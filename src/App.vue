@@ -48,4 +48,13 @@ export default {
 
 <style lang="scss">
 @import "./assets/sass/style.scss";
+
+/* GRID BODY TO ALWAYS HAVE FOOTER IN BOTTOM PAGE */
+#body {
+  background: url(https://www.aht.li/3601151/photo-1518607692857-bff9babd9d40.jpeg)
+    50% / cover;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
 </style>

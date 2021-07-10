@@ -1,16 +1,16 @@
+/* RESET BY DEFAULT */
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-size: 1.6rem;
+  font-family: $text;
+  color: $dark;
 }
-
-#body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+a {
+  color: $dark;
+  text-decoration: none;
 }

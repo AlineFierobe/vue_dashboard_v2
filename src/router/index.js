@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 // Home, Log & Website
 import Home from "../views/utils/Home";
+import About from "../views/utils/About";
 import UpdateWebsite from "../views/website/UpdateInfo";
 import Login from "../views/utils/Login";
 import Logout from "../views/utils/Logout";
@@ -59,6 +60,11 @@ const routes = [
     path: "/update-website",
     name: "UpdateWebsite",
     component: UpdateWebsite
+  },
+  {
+    path: "/about",
+    name: "About",
+    component: About
   },
   // PROJECTS
   {
@@ -165,7 +171,7 @@ const routes = [
   },
   // USER
   {
-    path: "/profile/:name",
+    path: "/profile",
     name: "Profile",
     component: Profile
   },
