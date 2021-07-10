@@ -1,7 +1,7 @@
 export default {
-  isLoading: state => state.user.isLoading,
-  isLoggedIn: state => state.user.isLoggedIn,
-  errors: state => state.user.errors,
-  currentUser: state => state.user.user,
-  jwtToken: state => state.user.jwtToken
+  isLoading: state => state.isLoading,
+  isLoggedIn: state => state.isLoggedIn,
+  errors: state => state.errors,
+  currentUser: state => state.user,
+  jwtToken: state => state.jwtToken
 }

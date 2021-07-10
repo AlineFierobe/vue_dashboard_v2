@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapMutations, mapGetters } from "vuex";
 import Header from "./views/utils/components/Header.vue";
 import Footer from "./views/utils/components/Footer.vue";
 
@@ -30,10 +30,10 @@ export default {
       siteName: "",
       devName: "",
       devSite: "",
-      isLoggedIn: false,
     };
   },
   computed: {
+    ...mapGetters("user", ["isLoggedIn"]),
     ...mapState("website", ["datas"]),
   },
   methods: {
@@ -56,5 +56,10 @@ export default {
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

@@ -7,8 +7,7 @@ export default {
   state: {
     datas: [],
     isLoading: false,
-    isLoggedIn: localStorage.getItem("jwtToken") ? null : false,
-    jwtToken: localStorage.getItem("jwtToken"),
+    isLoggedIn: localStorage.user ? true : false,
     errors: []
   },
   getters,
