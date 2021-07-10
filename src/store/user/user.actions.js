@@ -53,22 +53,25 @@ export default {
       context.commit("signOut");
       router.push('/');
       }
-      
       catch (err) {
       context.commit("signError", err);
     }
 
   },
 
-  // async refreshToken(context) {
-  //   try {
-  //     const response = await axios.get("/api/auth/refresh-token");
-  //     setTimeout(() => {
-  //       context.dispatch("refreshToken");
-  //     }, 14 * 60 * 1000);
-  //     context.commit("refreshTokenSuccess", response.data);
-  //   } catch (err) {
-  //     context.commit("refreshTokenError");
-  //   }
-  // }
+  async fetchCurrentUser(context, user) {
+    try {
+      let params = new FormData();
+      params.append("id", user);
+      ajaxService
+        .get("getUser", params)
+        .then((promise) => {
+          context.commit('fetchCurrentUser', promise);
+        })
+        .catch((error) => console.log(error));
+    }
+    catch (err) {
+      context.commit("signError", err);
+    }
+  }
 }

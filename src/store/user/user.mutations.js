@@ -12,7 +12,7 @@ export default {
     state.errors = [];
     state.isLoggedIn = true;
     delete data.user.password;
-    state.data = data.user;
+    state.datas = data.user;
     localStorage.setItem('user', data.user.id);
   },
 
@@ -23,8 +23,13 @@ export default {
 
   signOut(state) {
     state.jwtToken = null;
-    state.data = null;
+    state.datas = null;
     state.isLoggedIn = false;
     localStorage.removeItem("user");
   },
+
+  fetchCurrentUser(state, user) {
+    delete user.password;
+    state.datas = user;
+  }
 }
