@@ -16,5 +16,16 @@ app.config.globalProperties.$filters = {
     if(value) {
       return moment(String(value)).format("DD/MM/YYYY");
     }
+  },
+
+  formatTime(value) {
+    if (value) {
+      let time = value.split("");
+      let hOne = time[0];
+      let hTwo = time[1];
+      let mOne = time[3];
+      let mTwo = time[4];
+      return hOne + hTwo + "h" + mOne + mTwo;
+    }
   }
 }

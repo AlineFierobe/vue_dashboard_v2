@@ -1,8 +1,11 @@
 <template>
   <div class="item">
-    <ul>
+    <div class="loading" v-if="isLoading">
+      <img src="../../../assets/loading.gif" alt="loading" />
+    </div>
+    <ul v-else-if="relatedActiveTasks.length">
       <li
-        class="task-in-project"
+        class="list-in-project"
         v-for="task in relatedActiveTasks"
         :key="task.id"
         :class="
@@ -20,7 +23,10 @@
             params: { id: task.id },
           }"
         >
-          <span v-if="task.type.id == 2">
+          <span v-if="task.type.id == 1">
+            <i class="fas fa-clipboard-list"></i>
+          </span>
+          <span v-else-if="task.type.id == 2">
             <i class="fas fa-bug"></i>
           </span>
           {{ task.name }}
@@ -30,6 +36,9 @@
         </div>
       </li>
     </ul>
+    <div class="empty" v-else>
+      aucune tâche
+    </div>
   </div>
 </template>
 
@@ -46,7 +55,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("tasks", ["datas"]),
+    ...mapState("tasks", ["datas", "isLoading"]),
     ...mapState("global", ["today", "formatDate"]),
 
     sortedTasks() {

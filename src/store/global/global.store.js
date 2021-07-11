@@ -7,6 +7,7 @@ export default {
   state: {
     today: null,
     errors: [],
+    now: null,
   },
   getters,
   mutations,

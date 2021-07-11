@@ -11,6 +11,7 @@ export default {
       context.commit('displayTasks', data)
       // console.log(data);
       context.commit('updateIsLoading', false);
+
     })
     .catch((error) => console.log(error));
    } catch (error) {

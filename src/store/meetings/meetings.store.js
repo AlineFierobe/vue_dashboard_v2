@@ -6,7 +6,9 @@ export default {
   namespaced: true,
   state: {
     datas: [],
-  },
+    isLoading: false,
+    errors: []
+,  },
   getters,
   mutations,
   actions
