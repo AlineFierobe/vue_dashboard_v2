@@ -6,8 +6,4 @@ export default {
   getError(state, error) {
     state.errors = error;
   },
-
-  // formattingDate(state, date) {
-  //   state.formatDate = date;
-  // }
 }

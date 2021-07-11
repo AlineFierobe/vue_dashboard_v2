@@ -22,19 +22,4 @@ export default {
       context.commit('getError', error);
     }
   },
-
-  // async formattingDate(context, date) {
-  //   try {
-  //     const day = date[2];
-  //     const month = date[1]; 
-  //     const year = date[0];
-
-  //     const newDate = day + "/" + month + "/"+ year;
-
-  //     context.commit('formattingDate', newDate);
-
-  //   } catch (error) {
-  //     context.commit('getError', error);
-  //   }
-  // }
 }
