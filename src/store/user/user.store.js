@@ -6,7 +6,7 @@ export default {
   namespaced: true,
   state: {
     datas: [],
-    isLoading: false,
+    isLoading: true,
     isLoggedIn: localStorage.user ? true : false,
     errors: []
   },

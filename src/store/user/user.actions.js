@@ -3,11 +3,13 @@ import router from "../../router/index";
 
 export default {
   fetchUser(context){
+    context.commit("updateIsLoading", true);
     ajaxService
       .getRead('readUser')
       .then(promise => {
         const data = promise;
         context.commit('displayUser', data);
+        context.commit("updateIsLoading", false);
       })
       .catch( err => console.log(err));
   },
@@ -15,20 +17,15 @@ export default {
   async trySignin(context, credentials) {
     try {
       context.commit("updateIsLoading", true);
-    
       ajaxService
       .getRead("readUser")
       .then((promise) => {
         const listUser = promise;
-
         listUser.forEach(user => {
           if (user.password === credentials.password &&
             user.firstName.toLowerCase === credentials.name.toLowerCase){
-            const data = {
-              user,
-              jwtToken: "test",
-            }
-            context.commit("signinSuccess", data);
+            context.commit("signinSuccess", user);
+            context.commit("updateIsLoading", false);
             // redirect to user profile
             router.push("/profile");
           } else {
@@ -61,12 +58,14 @@ export default {
 
   async fetchCurrentUser(context, user) {
     try {
+      context.commit("updateIsLoading", true);
       let params = new FormData();
       params.append("id", user);
       ajaxService
         .get("getUser", params)
         .then((promise) => {
-          context.commit('fetchCurrentUser', promise);
+        context.commit("updateIsLoading", false);
+        context.commit('fetchCurrentUser', promise);
         })
         .catch((error) => console.log(error));
     }

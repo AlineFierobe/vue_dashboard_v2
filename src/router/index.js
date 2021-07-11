@@ -73,7 +73,7 @@ const routes = [
     component: AllProjects
   },
   {
-    path: "/project/:name",
+    path: "/project/:id",
     name: "SingleProject",
     component: SingleProject
   },
