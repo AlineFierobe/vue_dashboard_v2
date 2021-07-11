@@ -1,0 +1,59 @@
+.list-t-m {
+  width: 100%;
+  height: 59vh;
+  overflow: auto;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+  li {
+    border-radius: $br;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    @extend .bloc-gray;
+    .one i {
+      font-size: 4rem;
+    }
+    .two {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      .name {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .project {
+        font-weight: 300;
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+      }
+    }
+    .three {
+      justify-self: end;
+    }
+    &.passed-bloc {
+      background: $red;
+      color: $light;
+      a {
+        color: $light;
+      }
+    }
+    &.forToday-bloc {
+      background: $orange;
+      color: $light;
+      a {
+        color: $light;
+      }
+    }
+  }
+}

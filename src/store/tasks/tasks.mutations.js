@@ -13,5 +13,14 @@ export default {
 
   updateDate(state, date) {
     state.date = date;
+  },
+
+  updateTypes(state, types) {
+    state.types = types;
+  },
+
+  updateCurrent(state, task) {
+    state.current = task;
   }
+
 }

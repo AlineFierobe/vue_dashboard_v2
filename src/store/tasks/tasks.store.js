@@ -10,6 +10,7 @@ export default {
     isLoading: false,
     errors: [],
     date: null,
+    types: [],
   },
   getters,
   mutations,
