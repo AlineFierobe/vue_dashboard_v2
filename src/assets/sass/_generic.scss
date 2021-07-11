@@ -1,26 +1,32 @@
+/* FLEX CENTER */
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* BUTTON */
 .btn {
   min-width: 15rem;
   display: inline-block;
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: $br;
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
   margin: 1rem;
+  align-items: center;
   &-dark {
     @extend .btn;
     background: $dark;
     color: $light;
     border: 1px solid $dark;
-    cursor: pointer;
   }
   &-light {
     @extend .btn;
-    background: $light;
+    background: transparent;
     color: $dark;
     border: 1px solid $dark;
-    cursor: pointer;
   }
   &-green {
     @extend .btn;
@@ -55,10 +61,16 @@
 
 /* BLOC TITLE */
 .title {
-  // only tutle
-  font-size: 3rem;
+  // only title
   text-transform: uppercase;
   text-align: center;
+}
+h2.title {
+  font-size: 3rem;
+}
+h3.title,
+h4.title {
+  font-size: 1.6rem;
 }
 .title-date-status {
   // title with date/deadline and status
@@ -109,13 +121,32 @@
   margin: 4rem;
 }
 
-/* FLEX CENTER */
-.flex-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.passed {
+  color: $red;
+  font-weight: 700;
+  a {
+    color: $red;
+  }
 }
+.forToday {
+  color: $orange;
+  font-weight: 700;
+  a {
+    color: $orange;
+  }
+}
+
+/* LOADING */
+.loading {
+  @extend .flex-center;
+  margin: 5rem;
+  height: 100%;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 /* FORMS */
 .myForm {
   margin: auto;

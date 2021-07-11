@@ -1,10 +1,13 @@
 <template>
-  <ul class="list-projects" v-if="ongoingProjects.length">
+  <div v-if="isLoading" class="loading">
+    <img src="../../../assets/loading.gif" alt="loading" />
+  </div>
+  <ul class="list-projects" v-else-if="ongoingProjects.length">
     <li v-for="project in ongoingProjects" :key="project.id">
       <router-link
         :to="{
           name: 'SingleProject',
-          params: { name: project.name },
+          params: { id: project.id },
         }"
       >
         {{ project.name }}
@@ -18,6 +21,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import _ from "lodash";
 
 export default {
   name: "OngoingProjects",
@@ -26,10 +30,14 @@ export default {
   },
 
   computed: {
-    ...mapState("projects", ["datas"]),
+    ...mapState("projects", ["datas", "isLoading"]),
+
+    allProjects() {
+      return _.orderBy(this.datas, "name", "asc");
+    },
 
     ongoingProjects() {
-      return this.datas.filter((p) => p.status.id == 1);
+      return this.allProjects.filter((p) => p.status.id == 1);
     },
   },
 

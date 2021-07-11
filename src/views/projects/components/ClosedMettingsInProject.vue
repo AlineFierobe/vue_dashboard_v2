@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="item">
+    closed meetings
+  </div>
 </template>
 
 <script>

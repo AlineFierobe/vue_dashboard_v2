@@ -1,6 +1,7 @@
 .list-projects {
   width: 100%;
-  height: 90%;
+  height: 50vh;
+  overflow: auto;
   margin: 2rem auto;
   list-style: none;
   li {
@@ -14,5 +15,18 @@
         letter-spacing: 0;
       }
     }
+  }
+}
+
+.task-in-project {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  margin: 1rem auto;
+  .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
