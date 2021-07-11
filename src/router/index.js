@@ -114,7 +114,7 @@ const routes = [
     component: AllTasks
   },
   {
-    path: "/task/:name",
+    path: "/task/:id",
     name: "SingleTask",
     component: SingleTask
   },
@@ -145,7 +145,7 @@ const routes = [
     component: AllMeetings
   },
   {
-    path: "/meeting/:name",
+    path: "/meeting/:id",
     name: "SingleMeeting",
     component: SingleMeeting
   },

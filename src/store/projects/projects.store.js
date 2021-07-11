@@ -6,6 +6,7 @@ export default {
   namespaced: true,
   state: {
     datas: [],
+    current: [],
     isLoading: false,
   },
   getters,
