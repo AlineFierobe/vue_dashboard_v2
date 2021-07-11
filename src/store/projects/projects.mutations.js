@@ -9,6 +9,10 @@ export default {
 
   currentProject(state, project) {
     state.current = project;
+  },
+
+  getErrors(state, error) {
+    state.errors = error;
   }
 
 }

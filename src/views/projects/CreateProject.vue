@@ -37,7 +37,7 @@ export default {
     return {
       form: {
         name: null,
-        description: null,
+        description: "",
         deadline: null,
       },
     };

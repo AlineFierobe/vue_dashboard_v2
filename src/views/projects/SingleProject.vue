@@ -113,7 +113,7 @@
         </router-link>
       </div>
       <!-- BTN CLOSE -->
-      <div class="btn-close">
+      <div class="btn-close" v-if="current.status.id == 1">
         <router-link
           class="btn-dark"
           :to="{
@@ -173,7 +173,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;
   justify-items: center;
-  gap: 2rem;
+  gap: 1rem 2rem;
 }
 .description {
   width: 100%;
@@ -188,13 +188,13 @@ export default {
 .list {
   width: 100%;
   &-grid {
-    height: 93%;
+    height: 40vh;
     display: grid;
     grid-template-rows: 1fr 1fr;
     gap: 1rem;
     margin-top: 1rem;
     .item {
-      height: 17vh;
+      height: 15vh;
       overflow: auto;
       margin: 0.5rem auto;
     }

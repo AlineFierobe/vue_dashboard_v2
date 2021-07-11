@@ -3,5 +3,4 @@ export default {
   isLoggedIn: state => state.isLoggedIn,
   errors: state => state.errors,
   currentUser: state => state.user,
-  jwtToken: state => state.jwtToken
 }

@@ -1,5 +1,10 @@
 <template>
-  <div class="small-container">
+  <div class="small-container" v-if="isLoading">
+    <div class="loading">
+      <img src="../../assets/loading.gif" alt="loading" />
+    </div>
+  </div>
+  <div class="small-container" v-else>
     <form @submit.prevent="trySubmit" class="myForm flex-center">
       <h2 class="title">modifier mon mot de passe</h2>
       <div class="one-col">
@@ -31,7 +36,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("user", ["datas"]),
+    ...mapState("user", ["datas", "isLoading"]),
   },
   methods: {
     ...mapMutations("user", ["fetchCurrentUser"]),
@@ -51,3 +56,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.one-col {
+  width: 50%;
+}
+</style>

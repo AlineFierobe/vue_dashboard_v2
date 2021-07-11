@@ -8,6 +8,7 @@ export default {
     today: null,
     errors: [],
     now: null,
+    status: [],
   },
   getters,
   mutations,

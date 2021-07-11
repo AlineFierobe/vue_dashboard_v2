@@ -8,6 +8,7 @@ export default {
     datas: [],
     current: [],
     isLoading: false,
+    errors: [],
   },
   getters,
   mutations,

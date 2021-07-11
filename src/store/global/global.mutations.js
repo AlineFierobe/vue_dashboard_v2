@@ -10,4 +10,8 @@ export default {
   getError(state, error) {
     state.errors = error;
   },
+
+  displayStatus(state, status) {
+    state.status = status;
+  }
 }

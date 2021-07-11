@@ -80,4 +80,84 @@ export default {
       context.commit("signError", err);
     }
   },
+
+  async updateProject(context, data) {
+    try {
+      context.commit('updateIsLoading', true);
+      // Object FormData to set parameters
+      let params = new FormData();
+      params.append("id", data.id);
+      params.append("name", data.name);
+      params.append("deadline", data.deadline);
+      params.append("description", data.description);
+      params.append("status", data.status.id);
+      // call ajax service
+      ajaxService
+        .maj("updateProject", params)
+        .then((promise) => {
+          console.log(promise);
+          context.commit('currentProject', data);
+          context.commit('updateIsLoading', false);
+
+          // redirect to project
+          router.push({name: 'SingleProject', params: { id: data.id }});
+        })
+        .catch((error) => console.log(error));
+
+    } catch (err) {
+      context.commit("getErrors", err);
+    }
+  },
+
+  async deleteProject(context, id) {
+    try {
+      context.commit('updateIsLoading', true);
+      
+      let params = new FormData();
+      params.append("id", id);
+      // call Ajax service
+      ajaxService
+        .maj("deleteProject", params)
+        .then((promise) => {
+          console.log(promise);
+          
+          context.commit('updateIsLoading', false);
+
+          // Redirect to admin page
+          router.push("/projects");
+        })
+        .catch((error) => console.log(error));
+
+    } catch (error) {
+      context.commit('getErrors', error);
+    }
+  },
+
+  async closeProject(context, data) {
+    try {
+      context.commit('updateIsLoading', true);
+
+      let params = new FormData();
+      params.append("id", data.id);
+      params.append("name", data.name);
+      params.append("deadline", data.deadline);
+      params.append("description", data.description);
+      params.append("status", 2);
+
+      // call ajax service
+      ajaxService
+        .maj("updateProject", params)
+        .then((promise) => {
+          console.log(promise);
+
+          context.commit('updateIsLoading', false);
+
+          // Redirect to project page
+          router.push({ name: "SingleProject", params: { id: data.id } });
+        })
+        .catch((error) => console.log(error));
+    } catch (error) {
+      context.commit('getErrors', error);
+    }
+  }
 }

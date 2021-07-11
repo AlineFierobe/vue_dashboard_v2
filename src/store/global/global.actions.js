@@ -1,3 +1,5 @@
+import ajaxService from "../../config/ajaxService";
+
 export default {
   // used to get Today's date to the right format
   async dateToCompare(context, date) {
@@ -44,5 +46,21 @@ export default {
       context.commit('getError', error);
     }
   },
+ 
+  // get status
+  async getStatus(context) {
+    try {
+      ajaxService
+        .getRead("readStatus")
+        .then((promise) => {
+          const listStatus = promise
+          context.commit('displayStatus', listStatus)
+        })
+        .catch((error) => console.log(error));
+    } catch (error) {
+      context.commit('getError', error);
+      
+    }
+  }
 
 }
