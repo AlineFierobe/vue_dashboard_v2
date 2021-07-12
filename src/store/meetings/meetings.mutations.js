@@ -9,6 +9,13 @@ export default {
 
   getErrors(state, error) {
     state.errors = error;
-  }
+  },
 
+  updateCurrent(state, meeting) {
+    state.current = meeting;
+  },
+
+  updateTypes(state, type) {
+    state.types = type;
+  }
 }

@@ -16,8 +16,41 @@
       </div>
       <div class="one-col">
         <div>
+          <label>type de projet</label>
+          <ul class="check-two">
+            <li v-for="type in types" :key="type.id">
+              <input
+                :id="type.id"
+                type="radio"
+                v-model="form.type"
+                :value="type.id"
+              />
+              <label :for="type.id" v-if="type.id == 1" class="icon">
+                <i class="fas fa-code"></i>
+              </label>
+              <label :for="type.id" v-else-if="type.id == 2" class="icon">
+                <i class="fas fa-database"></i>
+              </label>
+              <label :for="type.id" v-else-if="type.id == 3" class="icon">
+                <i class="fas fa-layer-group"></i>
+              </label>
+              <label :for="type.id" v-else-if="type.id == 4" class="icon">
+                <i class="fab fa-wordpress"></i>
+              </label>
+              <label :for="type.id" v-else-if="type.id == 5" class="icon">
+                <i class="fas fa-circle"></i>
+              </label>
+              <label :for="type.id" class="text">
+                {{ type.name }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="one-col">
+        <div>
           <label for="description">Description</label>
-          <textarea v-model="form.description" class="large"></textarea>
+          <textarea v-model="form.description" class="small-plus"></textarea>
         </div>
       </div>
       <div class="two-btn">
@@ -31,6 +64,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "CreateProject",
   data() {
@@ -39,18 +73,24 @@ export default {
         name: null,
         description: "",
         deadline: null,
+        type: null,
       },
     };
   },
 
-  created() {
-    this.deadline = new Date();
+  computed: {
+    ...mapState("projects", ["types"]),
   },
 
   methods: {
+    ...mapMutations("projects", ["updateTypes"]),
     trySubmit() {
       this.$store.dispatch("projects/createProject", this.form);
     },
+  },
+
+  created() {
+    this.$store.dispatch("projects/getTypeProject");
   },
 };
 </script>

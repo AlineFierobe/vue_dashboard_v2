@@ -1,18 +1,37 @@
 .list-projects {
   width: 100%;
-  height: 50vh;
+  max-height: 50vh;
   overflow: auto;
   margin: 2rem auto;
   list-style: none;
-  li {
-    margin: 2rem auto;
-    a {
+  display: grid;
+  gap: 2rem 0;
+  a {
+    width: 95%;
+    padding: 2rem;
+    border-radius: $br;
+    &.passed-bloc {
+      background: $red;
+      color: $light;
+    }
+    &.forToday-bloc {
+      background: $orange;
+      color: $light;
+    }
+    li {
+      height: auto;
       text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 2px;
-      transition: 0.5s linear;
-      &:hover {
-        letter-spacing: 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      span i {
+        font-size: 4rem;
+        cursor: help;
+      }
+      .name {
+        font-size: 2rem;
+        margin: 0 2rem;
       }
     }
   }

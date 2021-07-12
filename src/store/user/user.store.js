@@ -8,7 +8,8 @@ export default {
     datas: [],
     isLoading: true,
     isLoggedIn: localStorage.user ? true : false,
-    errors: []
+    errors: [],
+    current: [],
   },
   getters,
   mutations,

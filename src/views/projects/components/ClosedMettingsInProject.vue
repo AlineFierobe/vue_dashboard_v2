@@ -9,7 +9,7 @@
         <router-link
           class="name"
           :to="{
-            name: 'SingleTask',
+            name: 'SingleMeeting',
             params: { id: meeting.id },
           }"
         >

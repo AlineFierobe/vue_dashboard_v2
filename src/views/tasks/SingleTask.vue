@@ -101,7 +101,7 @@ export default {
 
   computed: {
     ...mapState("tasks", ["current", "isLoading"]),
-    ...mapState("global", ["today", "formatDate"]),
+    ...mapState("global", ["today"]),
   },
 
   methods: {
@@ -117,56 +117,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "../../assets/sass/style.scss";
-
-.bloc-details {
-  width: 100%;
-  height: 84%;
-  margin-top: 1rem;
-  display: grid;
-  grid:
-    "project description description" 1fr
-    "delete update close" auto
-    / 1fr 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-  gap: 1rem;
-  .project {
-    width: 70%;
-    grid-area: project;
-    border-top: 1px solid $dark;
-    border-bottom: 1px solid $dark;
-    padding: 3rem 1rem;
-    margin: 3rem;
-    text-align: center;
-    a {
-      display: inline-block;
-      font-size: 2rem;
-      text-transform: uppercase;
-      font-weight: 700;
-      margin-top: 2rem;
-    }
-  }
-  .description {
-    height: 47vh;
-    overflow: auto;
-    grid-area: description;
-    text-align: justify;
-    justify-self: start;
-    align-self: start;
-    white-space: pre-line;
-    line-height: 2rem;
-  }
-  .delete {
-    grid-area: delete;
-  }
-  .update {
-    grid-area: update;
-  }
-  .close {
-    grid-area: close;
-  }
-}
-</style>

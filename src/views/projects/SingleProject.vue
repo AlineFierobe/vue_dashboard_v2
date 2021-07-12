@@ -35,7 +35,7 @@
       </div>
     </div>
     <!-- PROJECT DETAILS -->
-    <div class="bloc-details">
+    <div class="bloc-details-project">
       <!-- DESCRIPTION -->
       <div class="description">
         {{ current.description }}
@@ -149,7 +149,7 @@ export default {
 
   computed: {
     ...mapState("projects", ["current", "isLoading"]),
-    ...mapState("global", ["today", "formatDate"]),
+    ...mapState("global", ["today"]),
   },
 
   methods: {
@@ -162,13 +162,15 @@ export default {
     // function to compare date
     const today = new Date();
     this.$store.dispatch("global/dateToCompare", today);
+
+    // console.log(this.current);
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import ".././../assets/sass/style.scss";
-.bloc-details {
+.bloc-details-project {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;

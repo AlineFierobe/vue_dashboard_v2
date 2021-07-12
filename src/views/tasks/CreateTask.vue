@@ -20,7 +20,7 @@
         </div>
         <div>
           <label for="status">Type</label>
-          <ul class="check">
+          <ul class="check-one">
             <li v-for="type in types" :key="type.id">
               <label :for="type.id">
                 <span v-if="type.id == 1">

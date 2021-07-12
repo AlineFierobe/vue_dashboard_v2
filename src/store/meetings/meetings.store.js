@@ -7,8 +7,10 @@ export default {
   state: {
     datas: [],
     isLoading: false,
-    errors: []
-,  },
+    errors: [],
+    current: [],
+    types: [],
+  },
   getters,
   mutations,
   actions

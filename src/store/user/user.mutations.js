@@ -11,9 +11,9 @@ export default {
     state.isLoading = false;
     state.errors = [];
     state.isLoggedIn = true;
-    delete data.user.password;
-    state.datas = data.user;
-    localStorage.setItem('user', data.user.id);
+    delete data.password;
+    state.datas = data;
+    localStorage.setItem('user', data.id);
   },
 
   signError(state, errors) {
@@ -22,7 +22,6 @@ export default {
   },
 
   signOut(state) {
-    state.jwtToken = null;
     state.datas = null;
     state.isLoggedIn = false;
     localStorage.removeItem("user");
@@ -30,7 +29,7 @@ export default {
 
   fetchCurrentUser(state, user) {
     delete user.password;
-    state.datas = user;
+    state.current = user;
   },
 
   updateUser(state, user) {

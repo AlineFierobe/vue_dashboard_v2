@@ -2,7 +2,8 @@ import ajaxService from "../../config/ajaxService";
 import router from "../../router/index";
 
 export default {
-  fetchUser(context){
+  async fetchUser(context){
+   try {
     context.commit("updateIsLoading", true);
     ajaxService
       .getRead('readUser')
@@ -12,6 +13,9 @@ export default {
         context.commit("updateIsLoading", false);
       })
       .catch( err => console.log(err));
+   } catch (error) {
+    context.commit("signError", error);
+   }
   },
 
   async trySignin(context, credentials) {
@@ -56,11 +60,11 @@ export default {
 
   },
 
-  async fetchCurrentUser(context, user) {
+  async fetchCurrentUser(context, id) {
     try {
       context.commit("updateIsLoading", true);
       let params = new FormData();
-      params.append("id", user);
+      params.append("id", id);
       ajaxService
         .get("getUser", params)
         .then((promise) => {

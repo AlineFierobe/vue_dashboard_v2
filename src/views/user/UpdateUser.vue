@@ -10,21 +10,21 @@
       <div class="two-col">
         <div>
           <label for="firstName">Prénom</label>
-          <input type="text" v-model="datas.firstName" />
+          <input type="text" v-model="current.firstName" />
         </div>
         <div>
           <label for="lastName">Nom</label>
-          <input type="text" v-model="datas.lastName" />
+          <input type="text" v-model="current.lastName" />
         </div>
       </div>
       <div class="two-col">
         <div>
-          <img :src="datas.icon" alt="avatar" class="icon" />
-          <input type="text" v-model="datas.icon" />
+          <img :src="current.icon" alt="avatar" class="icon" />
+          <input type="text" v-model="current.icon" />
         </div>
         <div>
           <label for="lastName">Petite Phrase</label>
-          <textarea v-model="datas.more" class="medium"></textarea>
+          <textarea v-model="current.more" class="medium"></textarea>
         </div>
       </div>
       <div class="two-btn">
@@ -45,22 +45,20 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "UpdateUser",
   data() {
-    return {
-      id: localStorage.getItem("user"),
-    };
+    return {};
   },
   computed: {
-    ...mapState("user", ["datas", "isLoading"]),
+    ...mapState("user", ["current", "isLoading"]),
   },
   methods: {
     ...mapMutations("user", ["fetchCurrentUser"]),
 
     trySubmit() {
-      this.$store.dispatch("user/updateUser", this.datas);
+      this.$store.dispatch("user/updateUser", this.current);
     },
   },
   created() {
-    this.$store.dispatch("user/fetchCurrentUser", this.id);
+    this.$store.dispatch("user/fetchCurrentUser", localStorage.getItem("user"));
   },
 };
 </script>

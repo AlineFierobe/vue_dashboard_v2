@@ -13,9 +13,11 @@
     </div>
     <!-- ID CARD -->
     <div class="bloc-profile">
-      <img :src="datas.icon" alt="avatar" class="img" />
-      <div class="name">{{ datas.firstName + " " + datas.lastName }}</div>
-      <div class="job">{{ datas.more }}</div>
+      <img :src="current.icon" alt="avatar" class="img" />
+      <div class="name">
+        {{ current.firstName }} <span> {{ current.lastName }}</span>
+      </div>
+      <div class="job">{{ current.more }}</div>
     </div>
     <!-- UPDATE BUTTONS -->
     <div class="update-profile">
@@ -23,7 +25,7 @@
         class="btn-dark"
         :to="{
           name: 'UpdatePassword',
-          params: { id: datas.id },
+          params: { id: current.id },
         }"
       >
         modifier le mot de passe
@@ -32,7 +34,7 @@
         class="btn-dark"
         :to="{
           name: 'UpdateUser',
-          params: { id: datas.id },
+          params: { id: current.id },
         }"
       >
         modifier les infos
@@ -46,18 +48,16 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "Profile",
   data() {
-    return {
-      id: localStorage.getItem("user"),
-    };
+    return {};
   },
   computed: {
-    ...mapState("user", ["datas", "isLoading"]),
+    ...mapState("user", ["current", "isLoading"]),
   },
   methods: {
     ...mapMutations("user", ["fetchCurrentUser"]),
   },
   created() {
-    this.$store.dispatch("user/fetchCurrentUser", this.id);
+    this.$store.dispatch("user/fetchCurrentUser", localStorage.getItem("user"));
   },
 };
 </script>
@@ -87,6 +87,11 @@ export default {
   .name {
     grid-area: name;
     font-size: 3rem;
+    font-weight: 700;
+    span {
+      font-size: 3rem;
+      text-transform: uppercase;
+    }
   }
   .job {
     grid-area: job;

@@ -17,7 +17,7 @@
         </div>
         <div>
           <label for="status">Status</label>
-          <ul class="check">
+          <ul class="check-one">
             <li v-for="s in status" :key="s.id">
               <label :for="s.id">{{ s.name }}</label>
               <input
@@ -32,8 +32,41 @@
       </div>
       <div class="one-col">
         <div>
+          <label>type de projet</label>
+          <ul class="check-two">
+            <li v-for="type in types" :key="type.id">
+              <input
+                :id="type.name"
+                type="radio"
+                v-model="current.type.id"
+                :value="type.id"
+              />
+              <label :for="type.name" v-if="type.id == 1" class="icon">
+                <i class="fas fa-code"></i>
+              </label>
+              <label :for="type.name" v-else-if="type.id == 2" class="icon">
+                <i class="fas fa-database"></i>
+              </label>
+              <label :for="type.name" v-else-if="type.id == 3" class="icon">
+                <i class="fas fa-layer-group"></i>
+              </label>
+              <label :for="type.name" v-else-if="type.id == 4" class="icon">
+                <i class="fab fa-wordpress"></i>
+              </label>
+              <label :for="type.name" v-else-if="type.id == 5" class="icon">
+                <i class="fas fa-circle"></i>
+              </label>
+              <label :for="type.name" class="text">
+                {{ type.name }}
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="one-col">
+        <div>
           <label>description</label>
-          <textarea v-model="current.description" class="large"></textarea>
+          <textarea v-model="current.description" class="small"></textarea>
         </div>
       </div>
       <div class="two-btn">
@@ -62,12 +95,12 @@ export default {
   },
 
   computed: {
-    ...mapState("projects", ["current", "isLoading"]),
+    ...mapState("projects", ["current", "isLoading", "types"]),
     ...mapState("global", ["status"]),
   },
 
   methods: {
-    ...mapMutations("projects", ["currentProject"]),
+    ...mapMutations("projects", ["currentProject", "updateTypes"]),
 
     tryUpdate() {
       this.$store.dispatch("projects/updateProject", this.current);
@@ -75,6 +108,7 @@ export default {
   },
 
   created() {
+    this.$store.dispatch("projects/getTypeProject");
     this.$store.dispatch("projects/fetchCurrentProject", this.$route.params.id);
     this.$store.dispatch("global/getStatus");
   },

@@ -23,10 +23,14 @@ export default {
 
   async getTaskTypes(context) {
     try {
+    context.commit('updateIsLoading', true);
+
       ajaxService
       .getRead("readTaskType")
       .then((promise) => {
         context.commit('updateTypes', promise);
+        context.commit('updateIsLoading', false);
+
       })
       .catch((error) => console.log(error));
       

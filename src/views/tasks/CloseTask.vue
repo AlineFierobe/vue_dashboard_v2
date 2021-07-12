@@ -14,7 +14,7 @@
       </h3>
       <div class="empty">
         <p>
-          es-tu sûr de vouloir clore
+          es-tu sûr de vouloir clôturer
           <span v-if="current.type.id == 1">cette</span><span v-else>ce</span>
           {{ current.type.name }} ?
         </p>

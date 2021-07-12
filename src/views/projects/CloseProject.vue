@@ -11,7 +11,7 @@
         {{ current.name }}
       </h3>
       <div class="empty">
-        <p>es-tu sûr de vouloir clore ce projet ?</p>
+        <p>es-tu sûr de vouloir clôturer ce projet ?</p>
       </div>
       <div class="two-btn">
         <router-link

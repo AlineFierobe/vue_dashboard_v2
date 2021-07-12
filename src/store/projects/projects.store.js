@@ -9,6 +9,7 @@ export default {
     current: [],
     isLoading: false,
     errors: [],
+    types: [],
   },
   getters,
   mutations,

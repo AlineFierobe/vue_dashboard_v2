@@ -12,6 +12,10 @@
     <div class="loading" v-if="isLoading">
       <img src="../../assets/loading.gif" alt="loading" />
     </div>
+    <div v-else-if="!isLoading && !ongoingTasks.length" class="empty-list">
+      <i class="far fa-clipboard"></i>
+      <span>Aucune tâche à venir</span>
+    </div>
     <ul class="list-t-m" v-else>
       <router-link
         v-for="task in ongoingTasks"

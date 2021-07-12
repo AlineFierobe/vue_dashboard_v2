@@ -13,6 +13,10 @@ export default {
 
   getErrors(state, error) {
     state.errors = error;
+  },
+
+  updateTypes(state, types) {
+    state.types = types;
   }
 
 }

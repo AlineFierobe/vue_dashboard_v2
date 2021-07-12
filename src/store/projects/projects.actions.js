@@ -21,12 +21,14 @@ export default {
 
   async createProject(context, data) {
     try {
+      context.commit('updateIsLoading', true);
     // Object FormData to set parameters
     let params = new FormData();
     // set parameters
     params.append("name", data.name);
     params.append("description", data.description);
     params.append("deadline", data.deadline);
+    params.append("type", data.type);
     params.append("status", 1);
     // call Ajax service
     ajaxService
@@ -44,6 +46,8 @@ export default {
                 lastProjectID = listProjects[listProjects.length - 1].id;
                 lastProjectID = new Number(lastProjectID);
               }
+
+              context.commit('updateIsLoading', false);
 
               // redirect to all projects
               context.commit('displayProjects', listProjects);
@@ -157,5 +161,19 @@ export default {
     } catch (error) {
       context.commit('getErrors', error);
     }
-  }
+  },
+
+  getTypeProject(context) {
+  try {
+    context.commit('updateIsLoading', true);
+    ajaxService
+    .getRead("readTypeProject")
+    .then((promise) => {
+      context.commit('updateTypes', promise);
+      context.commit('updateIsLoading', false);
+    })
+    .catch((error) => console.log(error));
+  } catch (error) {
+    context.commit('getErrors', error);
+  }}
 }

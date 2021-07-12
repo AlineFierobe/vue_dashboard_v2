@@ -15,7 +15,7 @@
       <div class="three-col">
         <div>
           <label for="type">Type</label>
-          <ul class="check">
+          <ul class="check-one">
             <li v-for="type in types" :key="type.id">
               <label :for="type.id">
                 <span v-if="type.id == 1">
@@ -41,7 +41,7 @@
         </div>
         <div>
           <label for="status">Status</label>
-          <ul class="check">
+          <ul class="check-one">
             <li v-for="s in status" :key="s.id">
               <label :for="s.name">{{ s.name }}</label>
               <input

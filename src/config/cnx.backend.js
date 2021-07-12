@@ -41,4 +41,5 @@ export default {
   // meeting and task types
   readMeetingType: host + "/read/readType.php",
   readTaskType: host + "/read/readTypeTask.php",
+  readTypeProject: host + "/read/readTypeProject.php",
 };

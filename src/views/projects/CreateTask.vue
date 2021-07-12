@@ -16,7 +16,7 @@
       <div class="two-col">
         <div>
           <label>Type</label>
-          <ul class="check">
+          <ul class="check-one">
             <li v-for="type in types" :key="type.id">
               <label :for="type.id">
                 <span v-if="type.id == 1">
@@ -51,7 +51,13 @@
         </div>
       </div>
       <div class="two-btn">
-        <router-link class="btn-dark" to="/tasks">
+        <router-link
+          class="btn-dark"
+          :to="{
+            name: 'SingleProject',
+            params: { id: current.id },
+          }"
+        >
           annuler
         </router-link>
         <button class="btn-dark">
