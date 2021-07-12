@@ -75,7 +75,7 @@
           modifier
         </router-link>
       </div>
-      <div class="close">
+      <div class="close" v-if="current.status.id == 1">
         <router-link
           class="btn-dark"
           :to="{
@@ -134,6 +134,7 @@ export default {
   justify-items: center;
   gap: 1rem;
   .project {
+    width: 70%;
     grid-area: project;
     border-top: 1px solid $dark;
     border-bottom: 1px solid $dark;

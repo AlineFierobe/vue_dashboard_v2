@@ -40,18 +40,16 @@ export default {
             const listProjects = promise;
               // get last project ID and add one to get the one we create if no project yet set default value to 1
               let lastProjectID = 1;
-              let newProjectID = 1;
               if (listProjects.length > 0) {
                 lastProjectID = listProjects[listProjects.length - 1].id;
                 lastProjectID = new Number(lastProjectID);
-                newProjectID = lastProjectID;
               }
 
               // redirect to all projects
               context.commit('displayProjects', listProjects);
               router.push({ 
                 name: "SingleProject",
-                params: { id: newProjectID }
+                params: { id: lastProjectID }
               });
           })
           .catch((error) => console.log(error));

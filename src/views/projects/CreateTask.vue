@@ -25,7 +25,9 @@
                 <span v-if="type.id == 2">
                   <i class="fas fa-bug"></i>
                 </span>
-                {{ type.name }}
+                <span>
+                  {{ type.name }}
+                </span>
               </label>
               <input
                 :id="type.id"

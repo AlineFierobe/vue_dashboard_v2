@@ -24,7 +24,7 @@
         >
           annuler
         </router-link>
-        <button class="btn-dark">supprimer</button>
+        <button class="btn-red">supprimer</button>
       </div>
     </form>
   </div>

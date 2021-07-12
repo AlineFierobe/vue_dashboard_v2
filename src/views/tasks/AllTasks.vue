@@ -13,49 +13,46 @@
       <img src="../../assets/loading.gif" alt="loading" />
     </div>
     <ul class="list-t-m" v-else>
-      <li
+      <router-link
         v-for="task in ongoingTasks"
         :key="task.id"
-        :class="
-          task.deadline < today
-            ? 'passed-bloc'
-            : task.deadline == today
-            ? 'forToday-bloc'
-            : ''
-        "
+        :to="{
+          name: 'SingleTask',
+          params: { id: task.id },
+        }"
+        class="name"
       >
-        <div class="one">
-          <span v-if="task.type.id == 1">
-            <i class="fas fa-clipboard-list"></i>
-          </span>
-          <span v-else-if="task.type.id == 2">
-            <i class="fas fa-bug"></i>
-          </span>
-        </div>
-        <div class="two">
-          <router-link
-            :to="{
-              name: 'SingleTask',
-              params: { id: task.id },
-            }"
-            class="name"
-          >
-            {{ task.name }}
-          </router-link>
-          <router-link
-            :to="{
-              name: 'SingleProject',
-              params: { id: task.project.id },
-            }"
-            class="project"
-          >
-            {{ task.project.name }}
-          </router-link>
-        </div>
-        <div class="three">
-          {{ $filters.formatDate(task.deadline) }}
-        </div>
-      </li>
+        <li
+          :class="
+            task.deadline < today
+              ? 'passed-bloc'
+              : task.deadline == today
+              ? 'forToday-bloc'
+              : ''
+          "
+        >
+          <div class="one">
+            <span v-if="task.type.id == 1">
+              <i class="fas fa-clipboard-list"></i>
+            </span>
+            <span v-else-if="task.type.id == 2">
+              <i class="fas fa-bug"></i>
+            </span>
+          </div>
+          <div class="two">
+            <div class="name">
+              {{ task.name }}
+            </div>
+
+            <div class="project">
+              {{ task.project.name }}
+            </div>
+          </div>
+          <div class="three">
+            {{ $filters.formatDate(task.deadline) }}
+          </div>
+        </li>
+      </router-link>
     </ul>
   </div>
 </template>
