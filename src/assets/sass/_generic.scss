@@ -127,23 +127,12 @@ h4.title {
   p {
     margin: 1rem;
   }
-}
-
-// for main list
-.empty-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 4rem;
-  text-transform: uppercase;
-  font-weight: 700;
   i {
-    font-size: 10rem;
-    margin-right: 2rem;
+    font-size: 5rem;
+    margin: 3rem;
   }
-  span {
-    padding-top: 1rem;
-    font-size: 3rem;
+  .add-btn {
+    margin: 2rem;
   }
 }
 

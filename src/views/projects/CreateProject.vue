@@ -1,5 +1,10 @@
 <template>
-  <div class="main-container">
+  <div class="main-container" v-if="isLoading">
+    <div class="loading">
+      <img src="../../assets/loading.gif" alt="loading" />
+    </div>
+  </div>
+  <div class="main-container" v-else>
     <h2 class="title">
       Ajouter un projet
     </h2>
@@ -20,6 +25,8 @@
           <ul class="check-two">
             <li v-for="type in types" :key="type.id">
               <input
+                required
+                name="type"
                 :id="type.id"
                 type="radio"
                 v-model="form.type"
@@ -50,7 +57,11 @@
       <div class="one-col">
         <div>
           <label for="description">Description</label>
-          <textarea v-model="form.description" class="small-plus"></textarea>
+          <textarea
+            v-model="form.description"
+            class="small-plus"
+            required
+          ></textarea>
         </div>
       </div>
       <div class="two-btn">
@@ -79,7 +90,7 @@ export default {
   },
 
   computed: {
-    ...mapState("projects", ["types"]),
+    ...mapState("projects", ["types", "isLoading"]),
   },
 
   methods: {

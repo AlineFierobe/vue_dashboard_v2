@@ -1,5 +1,27 @@
 <template>
-  <div class="main-container">
+  <div class="main-container" v-if="isLoading">
+    <div class="loading">
+      <img src="../../assets/loading.gif" alt="loading" />
+    </div>
+  </div>
+  <div class="small-container" v-else-if="!ongoingProject.length">
+    <h2 class="title">Message Important</h2>
+    <div class="empty">
+      <i class="fas fa-exclamation-triangle"></i>
+      <p>
+        attend une minute, il n'y a aucun projet actif
+      </p>
+      <p>
+        pour créer une tâche, tu dois déjà créer un projet !
+      </p>
+      <div class="add-btn">
+        <router-link class="btn-dark" to="/create-project"
+          >créer un projet</router-link
+        >
+      </div>
+    </div>
+  </div>
+  <div class="main-container" v-else>
     <form class="myForm" @submit.prevent="trySubmit">
       <h2 class="title">
         ajouter une tâche
@@ -7,8 +29,8 @@
       <div class="two-col">
         <div>
           <label>Projet concerné</label>
-          <select v-model="form.project">
-            <option value="0" disabled>sélectionne un projet</option>
+          <select v-model="form.project" required>
+            <option value="" selected disabled>sélectionne un projet</option>
             <option
               v-for="project in ongoingProject"
               :key="project.id"
@@ -32,6 +54,8 @@
                 {{ type.name }}
               </label>
               <input
+                required
+                name="type"
                 :id="type.id"
                 type="radio"
                 v-model="form.type"
@@ -81,13 +105,13 @@ export default {
         name: null,
         deadline: null,
         description: "",
-        type: 0,
-        project: 0,
+        type: null,
+        project: null,
       },
     };
   },
   computed: {
-    ...mapState("tasks", ["types"]),
+    ...mapState("tasks", ["types", "isLoading"]),
     ...mapState("projects", ["datas"]),
 
     sortProject() {
@@ -116,5 +140,11 @@ export default {
 @import "../../assets/sass/style.scss";
 .myForm {
   width: 70%;
+}
+.empty {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>

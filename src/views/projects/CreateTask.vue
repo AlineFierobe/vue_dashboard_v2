@@ -30,6 +30,8 @@
                 </span>
               </label>
               <input
+                required
+                name="type"
                 :id="type.id"
                 type="radio"
                 v-model="form.type"

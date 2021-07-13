@@ -140,4 +140,56 @@ export default {
       context.commit('getErrors', error);
     }
   },
+
+  async createMeeting(context, data) {
+    try {
+
+    context.commit('updateIsLoading', true);
+
+    // Object FormData to set parameters
+    let params = new FormData();
+    // set parameters
+    params.append("name", data.name);
+    params.append("date", data.date);
+    params.append("time", data.time);
+    params.append("description", data.description);
+    params.append("more", data.more);
+    params.append("report", data.report);
+    params.append("type", data.type);
+    params.append("project", data.project);
+    params.append("status", 1);
+    // call Ajax service
+    ajaxService
+      .maj("createMeeting", params)
+      .then((promise) => {
+        console.log(promise);
+
+        ajaxService
+          .getRead("readMeeting")
+          .then((promise) => {
+            const listMeetings = promise;
+            context.commit('displayMeetings', listMeetings);
+              // get last task ID and add one to get the one we create if no task yet set default value to 1
+              let lastMeetingID = 1;
+              if (listMeetings.length > 0) {
+                lastMeetingID = listMeetings[listMeetings.length - 1].id;
+                lastMeetingID = new Number(lastMeetingID);
+              }
+              context.commit('updateIsLoading', false);
+
+              // redirect to the new task
+              context.commit('displayMeetings', listMeetings);
+              router.push({ 
+                name: "SingleMeeting",
+                params: { id: lastMeetingID }
+              });
+          })
+          .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
+    }
+    catch(err) {
+      context.commit("signError", err);
+    }
+  },
 }

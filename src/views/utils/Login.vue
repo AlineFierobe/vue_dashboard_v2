@@ -1,6 +1,23 @@
 <template>
-  <!-- MAIN CONTAINER -->
-  <div class="main-container">
+  <!-- IF NOT CONNECTED -->
+  <div class="small-container" v-if="connected">
+    <h2 class="title">
+      oups
+    </h2>
+    <div class="empty">
+      <i class="fas fa-user-check"></i>
+      <p>on dirait que tu es déjà connecté</p>
+      <div class="add-btn">
+        <router-link class="btn-dark" to="/logout">
+          déconnexion
+        </router-link>
+        <router-link class="btn-dark" to="/profile">
+          mon profil
+        </router-link>
+      </div>
+    </div>
+  </div>
+  <div class="small-container" v-else>
     <!-- START FORM -->
     <form method="POST" class="myForm flex-center" @submit.prevent="trySubmit">
       <h2 class="title">Connexion</h2>
@@ -37,7 +54,14 @@ export default {
         name: "",
         password: "",
       },
+      connected: false,
     };
+  },
+
+  created() {
+    if (localStorage.getItem("user")) {
+      this.connected = true;
+    }
   },
 
   computed: {
@@ -65,11 +89,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../assets/sass/style.scss";
-.main-container {
-  width: 60%;
+.empty,
+.myForm {
+  height: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .myForm {
-  width: 35%;
+  max-width: 30rem;
   h2 {
     margin: 4rem;
   }

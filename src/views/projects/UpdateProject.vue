@@ -8,12 +8,12 @@
     <h2 class="title">Modifier le projet</h2>
     <form @submit.prevent="tryUpdate" class="myForm">
       <div class="item-name">
-        <input class="item-name" type="text" v-model="current.name" />
+        <input class="item-name" type="text" v-model="current.name" required />
       </div>
       <div class="two-col">
         <div>
           <label for="date">Deadline</label>
-          <input type="date" v-model="current.deadline" />
+          <input type="date" v-model="current.deadline" required />
         </div>
         <div>
           <label for="status">Status</label>
@@ -66,7 +66,11 @@
       <div class="one-col">
         <div>
           <label>description</label>
-          <textarea v-model="current.description" class="small"></textarea>
+          <textarea
+            v-model="current.description"
+            class="small"
+            required
+          ></textarea>
         </div>
       </div>
       <div class="two-btn">

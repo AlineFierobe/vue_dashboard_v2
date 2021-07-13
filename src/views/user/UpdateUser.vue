@@ -10,21 +10,21 @@
       <div class="two-col">
         <div>
           <label for="firstName">Prénom</label>
-          <input type="text" v-model="current.firstName" />
+          <input type="text" v-model="current.firstName" required />
         </div>
         <div>
           <label for="lastName">Nom</label>
-          <input type="text" v-model="current.lastName" />
+          <input type="text" v-model="current.lastName" required />
         </div>
       </div>
       <div class="two-col">
         <div>
           <img :src="current.icon" alt="avatar" class="icon" />
-          <input type="text" v-model="current.icon" />
+          <input type="text" v-model="current.icon" required />
         </div>
         <div>
           <label for="lastName">Petite Phrase</label>
-          <textarea v-model="current.more" class="medium"></textarea>
+          <textarea v-model="current.more" class="medium" required></textarea>
         </div>
       </div>
       <div class="two-btn">

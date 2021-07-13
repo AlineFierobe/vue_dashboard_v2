@@ -10,16 +10,16 @@
     </h2>
     <form @submit.prevent="trySubmit" class="myForm">
       <div class="item-name">
-        <input class="item-name" type="text" v-model="current.name" />
+        <input class="item-name" type="text" v-model="current.name" required />
       </div>
       <div class="three-col">
         <div>
           <label>date</label>
-          <input type="date" v-model="current.date" />
+          <input type="date" v-model="current.date" required />
         </div>
         <div>
           <label>heure</label>
-          <input type="time" v-model="current.time" />
+          <input type="time" v-model="current.time" required />
         </div>
         <div>
           <label for="status">Status</label>
@@ -27,6 +27,8 @@
             <li v-for="s in status" :key="s.id">
               <label :for="s.name">{{ s.name }}</label>
               <input
+                required
+                name="status"
                 :id="s.name"
                 type="radio"
                 v-model="current.status.id"
@@ -42,6 +44,8 @@
           <ul class="check-two">
             <li v-for="type in types" :key="type.id">
               <input
+                required
+                name="type"
                 :id="type.id"
                 type="radio"
                 v-model="current.type.id"

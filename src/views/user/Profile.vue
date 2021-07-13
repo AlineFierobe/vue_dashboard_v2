@@ -66,8 +66,8 @@ export default {
 @import "../../assets/sass/style.scss";
 .bloc-profile {
   width: 70%;
-  margin: 2rem auto;
-  height: 60%;
+  margin: 5rem auto;
+  height: 50%;
   background: $gray;
   border-radius: 20px;
   padding: 2rem;

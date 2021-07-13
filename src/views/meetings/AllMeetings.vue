@@ -4,16 +4,16 @@
       <h2>
         mes réunions
       </h2>
-      <router-link class="btn-dark" to="/meetings">
+      <router-link class="btn-dark" to="/create-meeting">
         ajouter une réunion
       </router-link>
     </div>
     <div class="loading" v-if="isLoading">
       <img src="../../assets/loading.gif" alt="loading" />
     </div>
-    <div v-else-if="!isLoading && !ongoingMeetings.length" class="empty-list">
+    <div v-else-if="!isLoading && !ongoingMeetings.length" class="empty">
       <i class="far fa-calendar"></i>
-      <span>Aucune réunion à venir</span>
+      <p>on dirait bien qu'il n'y a aucune réunion à venir</p>
     </div>
     <ul class="list-t-m" v-else>
       <router-link

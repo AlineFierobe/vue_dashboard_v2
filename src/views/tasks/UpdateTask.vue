@@ -10,7 +10,7 @@
     </h2>
     <form @submit.prevent="trySubmit" class="myForm">
       <div class="item-name">
-        <input class="item-name" type="text" v-model="current.name" />
+        <input class="item-name" type="text" required v-model="current.name" />
       </div>
       <div class="three-col">
         <div>
@@ -27,6 +27,8 @@
                 {{ type.name }}
               </label>
               <input
+                required
+                name="type"
                 :id="type.id"
                 type="radio"
                 v-model="current.type.id"
@@ -37,7 +39,7 @@
         </div>
         <div>
           <label>deadline</label>
-          <input type="date" v-model="current.deadline" />
+          <input type="date" v-model="current.deadline" required />
         </div>
         <div>
           <label for="status">Status</label>
@@ -57,7 +59,11 @@
       <div class="one-col">
         <div>
           <label>Description</label>
-          <textarea v-model="current.description" class="large"></textarea>
+          <textarea
+            v-model="current.description"
+            class="large"
+            required
+          ></textarea>
         </div>
       </div>
       <div class="two-btn">
