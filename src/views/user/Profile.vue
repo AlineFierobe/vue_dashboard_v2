@@ -1,10 +1,10 @@
 <template>
-  <div class="small-container" v-if="isLoading">
+  <div class="main-container" v-if="isLoading">
     <div class="loading">
       <img src="../../assets/loading.gif" alt="loading" />
     </div>
   </div>
-  <div class="small-container" v-else>
+  <div class="main-container" v-else>
     <div class="title-add">
       <h2>Mon Profil</h2>
       <router-link to="/logout" class="btn-dark">
@@ -37,7 +37,10 @@
           params: { id: current.id },
         }"
       >
-        modifier les infos
+        modifier mes infos
+      </router-link>
+      <router-link class="btn-dark" to="/update-website">
+        modifier la config
       </router-link>
     </div>
   </div>
@@ -67,7 +70,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/sass/style.scss";
 .bloc-profile {
-  width: 70%;
+  width: 40%;
   margin: 5rem auto;
   height: 50%;
   background: $gray;
