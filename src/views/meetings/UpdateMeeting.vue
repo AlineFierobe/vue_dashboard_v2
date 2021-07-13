@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="main-container" v-else>
-    <h2 class="title">
-      modifier la réunion
-    </h2>
     <form @submit.prevent="trySubmit" class="myForm">
+      <h2 class="title">
+        modifier la réunion
+      </h2>
       <div class="item-name">
         <input class="item-name" type="text" v-model="current.name" required />
       </div>

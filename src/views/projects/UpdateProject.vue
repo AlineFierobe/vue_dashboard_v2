@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="main-container" v-else>
-    <h2 class="title">Modifier le projet</h2>
     <form @submit.prevent="tryUpdate" class="myForm">
+      <h2 class="title">Modifier le projet</h2>
       <div class="item-name">
         <input class="item-name" type="text" v-model="current.name" required />
       </div>

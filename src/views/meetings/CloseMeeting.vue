@@ -5,8 +5,8 @@
     </div>
   </div>
   <div class="small-container" v-else>
-    <h2 class="title">clore cette réunion</h2>
     <form @submit.prevent="trySubmit" class="myForm">
+      <h2 class="title">clore cette réunion</h2>
       <div class="empty">
         <p>es-tu sûr de vouloir clôturer cette réunion ?</p>
       </div>

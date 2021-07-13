@@ -1,12 +1,12 @@
 <template>
   <div class="main-container">
-    <h2 class="title">
-      ajouter une tâche
-    </h2>
-    <h3 class="title">
-      {{ current.name }}
-    </h3>
     <form class="myForm" @submit.prevent="trySubmit">
+      <h2 class="title">
+        ajouter une tâche
+      </h2>
+      <h3 class="title">
+        {{ current.name }}
+      </h3>
       <div class="one-col">
         <div>
           <label>Nom de la tâche</label>

@@ -1,5 +1,10 @@
 <template>
-  <div class="small-container">
+  <div class="small-container" v-if="isLoading">
+    <div class="loading">
+      <img src="../../assets/loading.gif" alt="loading" />
+    </div>
+  </div>
+  <div class="small-container" v-else>
     <h2 class="title">à propos</h2>
     <div class="bloc-text" v-for="site in datas" :key="site.id">
       {{ site.about }}
@@ -15,7 +20,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState("website", ["datas"]),
+    ...mapState("website", ["datas", "isLoading"]),
   },
   methods: {
     ...mapMutations("website", ["displayWebsite"]),

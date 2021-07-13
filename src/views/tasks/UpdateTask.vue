@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="main-container" v-else>
-    <h2 class="title">
-      modifier la tâche
-    </h2>
     <form @submit.prevent="trySubmit" class="myForm">
+      <h2 class="title">
+        modifier la tâche
+      </h2>
       <div class="item-name">
         <input class="item-name" type="text" required v-model="current.name" />
       </div>
@@ -59,11 +59,7 @@
       <div class="one-col">
         <div>
           <label>Description</label>
-          <textarea
-            v-model="current.description"
-            class="large"
-            required
-          ></textarea>
+          <textarea v-model="current.description" class="large"></textarea>
         </div>
       </div>
       <div class="two-btn">

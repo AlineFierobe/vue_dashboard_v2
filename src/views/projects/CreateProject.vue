@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="main-container" v-else>
-    <h2 class="title">
-      Ajouter un projet
-    </h2>
     <form @submit.prevent="trySubmit" class="myForm">
+      <h2 class="title">
+        Ajouter un projet
+      </h2>
       <div class="two-col">
         <div>
           <label for="name">Nom du Projet</label>

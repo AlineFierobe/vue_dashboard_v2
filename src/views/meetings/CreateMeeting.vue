@@ -22,10 +22,10 @@
     </div>
   </div>
   <div class="main-container" v-else>
-    <h2 class="title">
-      Créer une réunion
-    </h2>
     <form @submit.prevent="trySubmit" class="myForm">
+      <h2 class="title">
+        Créer une réunion
+      </h2>
       <div class="three-col">
         <div>
           <label>projet concerné</label>
