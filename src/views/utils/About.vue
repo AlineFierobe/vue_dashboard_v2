@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container">
+  <div class="small-container">
     <h2 class="title">à propos</h2>
     <div class="bloc-text" v-for="site in datas" :key="site.id">
       {{ site.about }}
@@ -22,15 +22,14 @@ export default {
   },
   created() {
     this.$store.dispatch("website/fetchWebsite");
+    this.$store.dispatch("global/removeMenu");
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../assets/sass/style.scss";
-.main-container {
-  width: 60%;
-}
+
 .bloc-text {
   height: 94%;
   margin: auto;

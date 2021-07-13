@@ -5,6 +5,23 @@
   justify-content: center;
   align-items: center;
 }
+/* NO SCROLL */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* MOBILE */
+.mobile {
+  display: none;
+  @include mobile {
+    display: initial;
+  }
+}
+.desktop {
+  @include mobile {
+    display: none !important;
+  }
+}
 /* BUTTON */
 .btn {
   min-width: 15rem;
@@ -49,6 +66,9 @@
   width: 90%;
   margin: auto;
   padding: 2rem;
+  @include mobile {
+    height: 100%;
+  }
 }
 
 .small-container {
@@ -57,6 +77,10 @@
   width: 50%;
   margin: auto;
   padding: 2rem;
+  @include mobile {
+    height: 100%;
+    width: 90%;
+  }
 }
 
 /* BLOC TITLE */
@@ -79,14 +103,34 @@ h4.title {
 .title-date-status {
   // title with date/deadline and status
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid:
+    "title date status" auto
+    / 1fr auto auto;
   align-items: center;
+  @include mobile {
+    grid:
+      "title status" auto
+      "date date" auto
+      / 1fr auto;
+  }
   h2 {
+    grid-area: title;
     text-transform: uppercase;
     font-size: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .date {
+    grid-area: date;
     margin: 0 2rem;
+    @include mobile {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+  .status {
+    grid-area: status;
   }
 }
 .title-add {
@@ -316,5 +360,75 @@ h4.title {
   .btn-dark,
   .btn-red {
     cursor: pointer;
+  }
+}
+
+/* LIST */
+.my-list {
+  width: 100%;
+  list-style: none;
+  display: grid;
+  overflow: auto;
+  gap: 2rem;
+  @include mobile {
+    grid-template-columns: 1fr !important;
+    max-height: initial !important;
+    height: auto !important;
+  }
+  li {
+    border-radius: $br;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    @extend .bloc-gray;
+    @include mobile {
+      grid-template-columns: auto 1fr 1fr;
+    }
+    .one i {
+      font-size: 4rem;
+    }
+    .two {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      .name {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.7rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .project {
+        font-weight: 300;
+        font-size: 1.3rem;
+        font-style: italic;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .three {
+      justify-self: end;
+      text-align: right;
+    }
+    &.passed-bloc {
+      background: $red;
+      color: $light;
+      a {
+        color: $light;
+      }
+    }
+    &.forToday-bloc {
+      background: $orange;
+      color: $light;
+      a {
+        color: $light;
+      }
+    }
   }
 }

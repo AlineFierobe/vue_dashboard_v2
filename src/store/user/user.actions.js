@@ -31,7 +31,7 @@ export default {
             context.commit("signinSuccess", user);
             context.commit("updateIsLoading", false);
             // redirect to user profile
-            router.push("/profile");
+            router.push("/");
           } else {
             const loggedFail = "identifiant ou mot de passe incorrect";
             context.commit('signError', loggedFail);
@@ -121,5 +121,6 @@ export default {
     } catch (err) {
       context.commit("signError", err);
     }
-  }
+  },
+
 }

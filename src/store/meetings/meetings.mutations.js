@@ -17,5 +17,6 @@ export default {
 
   updateTypes(state, type) {
     state.types = type;
-  }
+  },
+
 }

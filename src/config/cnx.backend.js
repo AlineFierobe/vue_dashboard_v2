@@ -1,5 +1,5 @@
 // link to back end
-const host = "http://localhost:8888/backend/back-dashboard_v2";
+const host = "https://backdashboard.alinefierobe.com";
 
 export default {
   // all programs needed

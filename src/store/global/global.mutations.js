@@ -13,5 +13,13 @@ export default {
 
   displayStatus(state, status) {
     state.status = status;
+  },
+
+  updateMenu(state, value) {
+    state.openMenu = value;
+  },
+
+  toggleMenu(state) {
+    state.openMenu = !state.openMenu;
   }
 }

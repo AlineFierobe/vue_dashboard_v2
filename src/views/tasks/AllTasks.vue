@@ -4,7 +4,7 @@
       <h2>
         mes tâches
       </h2>
-      <router-link class="btn-dark" to="/create-task">
+      <router-link class="desktop btn-dark" to="/create-task">
         ajouter une tâche
       </router-link>
     </div>
@@ -16,7 +16,7 @@
       <i class="far fa-clipboard"></i>
       <p>on dirait bien qu'il n'y a aucune tâche à faire</p>
     </div>
-    <ul class="list-t-m" v-else>
+    <ul class="list-t-m my-list" v-else>
       <router-link
         v-for="task in ongoingTasks"
         :key="task.id"
@@ -89,6 +89,7 @@ export default {
   },
 
   created() {
+    this.$store.dispatch("global/removeMenu");
     this.$store.dispatch("tasks/fetchTasks");
 
     // function to compare date

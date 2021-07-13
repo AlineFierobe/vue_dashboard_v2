@@ -45,6 +45,7 @@
         <div class="title-add">
           <h3>réunions</h3>
           <router-link
+            class="desktop"
             :to="{
               name: 'CreateMeetingInProject',
               params: { id: current.id },
@@ -73,6 +74,7 @@
               name: 'CreateTaskInProject',
               params: { id: current.id },
             }"
+            class="desktop"
           >
             <i class="fas fa-plus-square"></i>
           </router-link>
@@ -89,7 +91,7 @@
         </div>
       </div>
       <!-- BTN DELETE -->
-      <div class="btn-delete">
+      <div class="desktop btn-delete">
         <router-link
           class="btn-red"
           :to="{
@@ -101,7 +103,7 @@
         </router-link>
       </div>
       <!-- BTN UPDATE -->
-      <div class="btn-update">
+      <div class="desktop btn-update">
         <router-link
           class="btn-dark"
           :to="{
@@ -122,6 +124,9 @@
           }"
         >
           clore
+          <span class="mobile">
+            le projet
+          </span>
         </router-link>
       </div>
     </div>
@@ -162,8 +167,6 @@ export default {
     // function to compare date
     const today = new Date();
     this.$store.dispatch("global/dateToCompare", today);
-
-    // console.log(this.current);
   },
 };
 </script>
@@ -176,6 +179,11 @@ export default {
   grid-template-rows: 1fr auto;
   justify-items: center;
   gap: 1rem 2rem;
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    gap: 3rem;
+  }
 }
 .description {
   width: 100%;
@@ -185,6 +193,9 @@ export default {
   padding: 1rem;
   white-space: pre-line;
   text-align: justify;
+  @include mobile {
+    height: auto;
+  }
 }
 
 .list {
@@ -206,5 +217,9 @@ export default {
 .border {
   border-right: 1px solid $dark;
   padding-right: 3rem;
+  @include mobile {
+    border-right: none;
+    padding-right: 0;
+  }
 }
 </style>

@@ -61,6 +61,26 @@ export default {
       context.commit('getError', error);
       
     }
+  },
+
+  // toggle Menu in Mobile
+  toggleMenu(context) {
+      context.commit('toggleMenu');
+  },
+
+  updateMenu(context, value) {
+    context.commit('updateMenu', value);
+
+  },
+
+  removeMenu(context) {
+    const header = document.querySelector(".header");
+    const menu = document.querySelector("#menu");
+    const body = document.querySelector("body");
+    header.classList.remove("open");
+    menu.classList.add("hideMenu");
+    body.classList.remove("no-scroll");
+    context.commit('updateMenu', false);
   }
 
 }

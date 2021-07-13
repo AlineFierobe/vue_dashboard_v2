@@ -4,7 +4,7 @@
       <h2>
         mes projets
       </h2>
-      <router-link class="btn-dark" to="create-project">
+      <router-link class="desktop btn-dark" to="create-project">
         ajouter un projet
       </router-link>
     </div>
@@ -38,6 +38,9 @@ export default {
   data() {
     return {};
   },
+  created() {
+    this.$store.dispatch("global/removeMenu");
+  },
 };
 </script>
 
@@ -50,10 +53,17 @@ export default {
   grid-template-columns: 2fr 1fr;
   gap: 3rem;
   margin-top: 2rem;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 
 .border {
   border-right: 1px $dark solid;
   padding-right: 2rem;
+  @include mobile {
+    border-right: none;
+    padding-right: 0;
+  }
 }
 </style>

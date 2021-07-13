@@ -85,5 +85,8 @@ export default {
 @import "../../../assets/sass/style.scss";
 .list-projects {
   grid-template-columns: 1fr 1fr;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

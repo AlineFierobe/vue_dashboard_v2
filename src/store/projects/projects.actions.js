@@ -91,6 +91,7 @@ export default {
       params.append("id", data.id);
       params.append("name", data.name);
       params.append("deadline", data.deadline);
+      params.append("type", data.type.id);
       params.append("description", data.description);
       params.append("status", data.status.id);
       // call ajax service
@@ -143,6 +144,7 @@ export default {
       params.append("id", data.id);
       params.append("name", data.name);
       params.append("deadline", data.deadline);
+      params.append("type", data.type.id);
       params.append("description", data.description);
       params.append("status", 2);
 

@@ -14,6 +14,7 @@ export default {
     delete data.password;
     state.datas = data;
     localStorage.setItem('user', data.id);
+    localStorage.setItem('session', new Date().getTime());
   },
 
   signError(state, errors) {
@@ -25,6 +26,8 @@ export default {
     state.datas = null;
     state.isLoggedIn = false;
     localStorage.removeItem("user");
+    localStorage.removeItem("session");
+    localStorage.removeItem("now");
   },
 
   fetchCurrentUser(state, user) {

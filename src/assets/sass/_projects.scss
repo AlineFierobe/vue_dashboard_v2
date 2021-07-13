@@ -6,6 +6,10 @@
   list-style: none;
   display: grid;
   gap: 2rem 0;
+  @include mobile {
+    height: auto;
+    justify-items: center;
+  }
   a {
     width: 95%;
     padding: 2rem;
@@ -30,8 +34,11 @@
         cursor: help;
       }
       .name {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin: 0 2rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }
@@ -43,7 +50,8 @@
   grid-template-columns: 1fr auto;
   gap: 1rem;
   margin: 1rem auto;
-  .name {
+  .name,
+  .project {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

@@ -24,5 +24,11 @@ export default {
   background: $back;
   padding: 1rem;
   text-align: center;
+  @include mobile {
+    font-size: 1.4rem;
+    a {
+      font-size: 1.4rem;
+    }
+  }
 }
 </style>

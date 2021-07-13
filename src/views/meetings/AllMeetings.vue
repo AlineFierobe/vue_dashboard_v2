@@ -4,7 +4,7 @@
       <h2>
         mes réunions
       </h2>
-      <router-link class="btn-dark" to="/create-meeting">
+      <router-link class="desktop btn-dark" to="/create-meeting">
         ajouter une réunion
       </router-link>
     </div>
@@ -15,7 +15,7 @@
       <i class="far fa-calendar"></i>
       <p>on dirait bien qu'il n'y a aucune réunion à venir</p>
     </div>
-    <ul class="list-t-m" v-else>
+    <ul class="list-t-m my-list" v-else>
       <router-link
         v-for="meeting in ongoingMeetings"
         :key="meeting.id"
@@ -59,8 +59,9 @@
             </div>
           </div>
           <div class="three">
-            le {{ $filters.formatDate(meeting.date) }} à
-            {{ $filters.formatTime(meeting.time) }}
+            le&nbsp;{{ $filters.formatDate(meeting.date) }} à&nbsp;{{
+              $filters.formatTime(meeting.time)
+            }}
           </div>
         </li>
       </router-link>
@@ -96,6 +97,8 @@ export default {
   },
 
   created() {
+    this.$store.dispatch("global/removeMenu");
+
     this.$store.dispatch("meetings/fetchMeetings");
     // function to compare date
     const today = new Date();

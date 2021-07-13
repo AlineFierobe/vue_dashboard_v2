@@ -20,7 +20,7 @@
       <div class="job">{{ current.more }}</div>
     </div>
     <!-- UPDATE BUTTONS -->
-    <div class="update-profile">
+    <div class="desktop update-profile">
       <router-link
         class="btn-dark"
         :to="{
@@ -52,12 +52,14 @@ export default {
   },
   computed: {
     ...mapState("user", ["current", "isLoading"]),
+    ...mapState("global", ["openMenu"]),
   },
   methods: {
     ...mapMutations("user", ["fetchCurrentUser"]),
   },
   created() {
     this.$store.dispatch("user/fetchCurrentUser", localStorage.getItem("user"));
+    this.$store.dispatch("global/removeMenu");
   },
 };
 </script>
@@ -79,6 +81,15 @@ export default {
   align-items: center;
   justify-items: center;
   gap: 2rem;
+  @include mobile {
+    width: 100%;
+    height: 80%;
+    grid:
+      "img" auto
+      "name" auto
+      "job " auto
+      / 1fr;
+  }
   .img {
     grid-area: img;
     width: 12rem;
@@ -92,10 +103,16 @@ export default {
       font-size: 3rem;
       text-transform: uppercase;
     }
+    @include mobile {
+      text-align: center;
+    }
   }
   .job {
     grid-area: job;
     font-size: 2rem;
+    @include mobile {
+      text-align: center;
+    }
   }
 }
 .update-profile {

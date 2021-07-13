@@ -53,7 +53,7 @@
       <div class="description">
         {{ current.description }}
       </div>
-      <div class="delete">
+      <div class="desktop delete">
         <router-link
           class="btn-red"
           :to="{
@@ -64,7 +64,7 @@
           supprimer
         </router-link>
       </div>
-      <div class="update">
+      <div class="desktop update">
         <router-link
           class="btn-dark"
           :to="{
@@ -84,6 +84,7 @@
           }"
         >
           clore
+          <span class="mobile">la tâche</span>
         </router-link>
       </div>
     </div>

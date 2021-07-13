@@ -1,15 +1,6 @@
 import param from "./cnx.backend";
 import axios from "axios";
-// import Vue from "vue";
-// import store from "../store";
 
-// axios.interceptors.request.use(request => {
-//   const jwtToken = store.getters["user/jwtToken"];
-//   if (jwtToken) {
-//     request.headers["Authorization"] = `Bearer ${jwtToken}`;
-//   }
-//   return request;
-// });
 
 export default {
   getRead(type) {

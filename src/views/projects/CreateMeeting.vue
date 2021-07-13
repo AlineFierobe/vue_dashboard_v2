@@ -69,7 +69,13 @@
         </div>
       </div>
       <div class="two-btn">
-        <router-link class="btn-dark" to="/meetings">
+        <router-link
+          class="btn-dark"
+          :to="{
+            name: 'SingleProject',
+            params: { id: current.id },
+          }"
+        >
           annuler
         </router-link>
         <button class="btn-dark">créer</button>

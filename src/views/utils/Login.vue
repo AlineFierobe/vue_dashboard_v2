@@ -59,6 +59,8 @@ export default {
   },
 
   created() {
+    this.$store.dispatch("global/removeMenu");
+
     if (localStorage.getItem("user")) {
       this.connected = true;
     }
@@ -91,13 +93,16 @@ export default {
 @import "../../assets/sass/style.scss";
 .empty,
 .myForm {
-  height: 65%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.empty {
+  height: 65%;
+}
 .myForm {
   max-width: 30rem;
+  height: 100%;
   h2 {
     margin: 4rem;
   }

@@ -11,3 +11,9 @@ $br: 8px;
 $back: rgba(255, 255, 255, 0.8);
 
 $text: "Josefin Sans", sans-serif;
+
+@mixin mobile {
+  @media only screen and (max-width: 500px) {
+    @content;
+  }
+}
