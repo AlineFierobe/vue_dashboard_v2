@@ -48,13 +48,31 @@ export default {
 @import "../../assets/sass/style.scss";
 
 .bloc-projects {
-  height: 83%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
   margin-top: 2rem;
   @include mobile {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+  .ongoing-project {
+    flex: 2;
+  }
+  .closed-project {
+    flex: 1;
+  }
+  .ongoing-project,
+  .closed-project {
+    max-height: 55vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    @include mobile {
+      max-height: initial;
+      justify-items: center;
+    }
   }
 }
 

@@ -109,9 +109,10 @@ h4.title {
   align-items: center;
   @include mobile {
     grid:
-      "title status" auto
-      "date date" auto
-      / 1fr auto;
+      "status" auto
+      "title" auto
+      "date" auto
+      / 1fr;
   }
   h2 {
     grid-area: title;
@@ -120,17 +121,31 @@ h4.title {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    @include mobile {
+      font-size: 1.7rem;
+      text-align: center;
+      margin: 1.5rem auto;
+      overflow: initial;
+      text-overflow: initial;
+      white-space: initial;
+    }
   }
   .date {
     grid-area: date;
     margin: 0 2rem;
     @include mobile {
       text-align: center;
-      margin-top: 2rem;
     }
   }
   .status {
     grid-area: status;
+  }
+  @include mobile {
+    .btn-green,
+    .btn-red,
+    .btn-light {
+      font-size: 1.4rem;
+    }
   }
 }
 .title-add {
@@ -355,6 +370,9 @@ h4.title {
     display: flex;
     flex-direction: row;
     align-items: center;
+    @include mobile {
+      flex-direction: column;
+    }
   }
   .two-btn {
     justify-content: space-evenly;
@@ -389,7 +407,8 @@ h4.title {
     align-items: center;
     @extend .bloc-gray;
     @include mobile {
-      grid-template-columns: auto 1fr 1fr;
+      grid-template-columns: auto 2fr 1fr;
+      gap: 1rem;
     }
     .one i {
       font-size: 4rem;
@@ -405,6 +424,9 @@ h4.title {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        @include mobile {
+          font-size: 1.3rem;
+        }
       }
       .project {
         font-weight: 300;
@@ -420,6 +442,12 @@ h4.title {
     .three {
       justify-self: end;
       text-align: right;
+      @include mobile {
+        font-size: 1.2rem;
+        span {
+          font-size: 1.2rem;
+        }
+      }
     }
     &.passed-bloc {
       background: $red;

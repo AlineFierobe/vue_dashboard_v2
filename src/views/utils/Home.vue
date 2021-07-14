@@ -112,8 +112,8 @@ export default {
     height: 100%;
     grid:
       "top" auto
-      "tasks" auto
       "meetings" auto
+      "tasks" auto
       / 1fr;
   }
   gap: 2rem;
