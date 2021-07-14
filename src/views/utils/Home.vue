@@ -138,7 +138,6 @@ export default {
     background: $back;
     overflow: auto;
     padding: 1rem;
-
     h4 {
       text-transform: uppercase;
       font-size: 2.2rem;

@@ -86,16 +86,22 @@ export default {
 
     let session = localStorage.getItem("session");
 
+    // if session ongoing check if still active if too long signout and redirect to home
     if (session) {
       localStorage.setItem("now", new Date().getTime());
       let newDate = localStorage.getItem("now");
       session = new Number(session);
       const oneDay = 1000 * 60 * 60 * 1;
+      // const oneDay = 1000 * 10;
       session = session + oneDay;
       newDate = new Number(newDate);
       if (newDate > session) {
         this.$store.dispatch("user/trySignout");
       }
+    }
+    // if no session signout and redirect homepage
+    if (!session) {
+      this.$store.dispatch("user/trySignout");
     }
   },
 };

@@ -40,17 +40,20 @@ export default {
           .getRead("readProject")
           .then((promise) => {
             const listProjects = promise;
+            context.commit('displayProjects', listProjects);
+
               // get last project ID and add one to get the one we create if no project yet set default value to 1
               let lastProjectID = 1;
               if (listProjects.length > 0) {
-                lastProjectID = listProjects[listProjects.length - 1].id;
-                lastProjectID = new Number(lastProjectID);
+                let ids = listProjects.map(function(projects) {
+                  return projects.id;
+                });
+                lastProjectID = Math.max(...ids);
               }
 
               context.commit('updateIsLoading', false);
 
               // redirect to all projects
-              context.commit('displayProjects', listProjects);
               router.push({ 
                 name: "SingleProject",
                 params: { id: lastProjectID }

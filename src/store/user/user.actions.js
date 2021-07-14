@@ -50,7 +50,6 @@ export default {
 
   async trySignout(context) {
     try {
-      context.commit("updateIsLoading", true);
       context.commit("signOut");
       router.push('/');
       }

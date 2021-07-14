@@ -178,6 +178,7 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr auto;
   justify-items: center;
+  margin-top: 1rem;
   gap: 1rem 2rem;
   @include mobile {
     grid-template-columns: 1fr;

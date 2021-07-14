@@ -172,13 +172,14 @@ export default {
               // get last task ID and add one to get the one we create if no task yet set default value to 1
               let lastMeetingID = 1;
               if (listMeetings.length > 0) {
-                lastMeetingID = listMeetings[listMeetings.length - 1].id;
-                lastMeetingID = new Number(lastMeetingID);
+                let ids = listMeetings.map(function(meetings) {
+                  return meetings.id;
+                });
+                lastMeetingID = Math.max(...ids);
               }
               context.commit('updateIsLoading', false);
 
               // redirect to the new task
-              context.commit('displayMeetings', listMeetings);
               router.push({ 
                 name: "SingleMeeting",
                 params: { id: lastMeetingID }

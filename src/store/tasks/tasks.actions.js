@@ -67,13 +67,13 @@ export default {
               // get last task ID and add one to get the one we create if no task yet set default value to 1
               let lastTaskID = 1;
               if (listTasks.length > 0) {
-                lastTaskID = listTasks[listTasks.length - 1].id;
-                lastTaskID = new Number(lastTaskID);
+                let ids = listTasks.map(function(tasks) {
+                  return tasks.id;
+                });
+                lastTaskID = Math.max(...ids);
               }
               context.commit('updateIsLoading', false);
-
               // redirect to the new task
-              context.commit('displayTasks', listTasks);
               router.push({ 
                 name: "SingleTask",
                 params: { id: lastTaskID }

@@ -162,12 +162,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../assets/sass/style.scss";
-.main-container {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  align-items: center;
-  gap: 1rem;
-}
+
 .report {
   display: grid;
   gap: 0 2rem;
