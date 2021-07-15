@@ -80,6 +80,6 @@ export default {
 
 <style lang="scss" scoped>
 .loading {
-  height: 85%;
+  height: 80% !important;
 }
 </style>

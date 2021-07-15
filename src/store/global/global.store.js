@@ -9,7 +9,7 @@ export default {
     errors: [],
     now: null,
     status: [],
-    openMenu: null,
+    openMenu: null
   },
   getters,
   mutations,

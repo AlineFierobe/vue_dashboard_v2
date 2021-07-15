@@ -21,6 +21,7 @@ export default {
   },
   computed: {
     ...mapState("website", ["datas", "isLoading"]),
+    ...mapState("user", ["isLoggedIn"]),
   },
   methods: {
     ...mapMutations("website", ["displayWebsite"]),

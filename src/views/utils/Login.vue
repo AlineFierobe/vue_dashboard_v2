@@ -60,6 +60,7 @@ export default {
 
   created() {
     this.$store.dispatch("global/removeMenu");
+    this.$store.dispatch("user/resetError");
 
     if (localStorage.getItem("user")) {
       this.connected = true;

@@ -81,6 +81,9 @@ export default {
     menu.classList.add("hideMenu");
     body.classList.remove("no-scroll");
     context.commit('updateMenu', false);
-  }
+  },
+
+
+
 
 }

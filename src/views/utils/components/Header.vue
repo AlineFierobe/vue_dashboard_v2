@@ -65,6 +65,7 @@ export default {
 
   computed: {
     ...mapState("global", ["openMenu"]),
+    ...mapState("user", ["datas"]),
   },
 
   methods: {
@@ -83,6 +84,7 @@ export default {
 
   created() {
     this.$store.dispatch("global/updateMenu", false);
+    this.$store.dispatch("user/fetchUser");
 
     let session = localStorage.getItem("session");
 

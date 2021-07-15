@@ -8,8 +8,7 @@ export default {
     ajaxService
       .getRead('readUser')
       .then(promise => {
-        const data = promise;
-        context.commit('displayUser', data);
+        context.commit('displayUser', promise);
         context.commit("updateIsLoading", false);
       })
       .catch( err => console.log(err));
@@ -26,16 +25,16 @@ export default {
       .then((promise) => {
         const listUser = promise;
         listUser.forEach(user => {
-          if (user.password === credentials.password &&
-            user.firstName.toLowerCase === credentials.name.toLowerCase){
+          if (user.firstName === credentials.name && user.password === credentials.password){
+
             context.commit("signinSuccess", user);
             context.commit("updateIsLoading", false);
             // redirect to user profile
             router.push("/");
-          } else {
-            const loggedFail = "identifiant ou mot de passe incorrect";
-            context.commit('signError', loggedFail);
-          }
+        } else {
+          const loggedFail = "identifiant ou mot de passe incorrect";
+          context.commit('signError', loggedFail);
+        }
         });
         
       })
@@ -46,6 +45,15 @@ export default {
       context.commit("signError", err);
     }
 
+  },
+
+  async resetError(context) {
+    try {
+      const reset = "";
+      context.commit("signError", reset);
+    } catch (error) {
+      context.commit("signError", error);
+    }
   },
 
   async trySignout(context) {
@@ -121,5 +129,6 @@ export default {
       context.commit("signError", err);
     }
   },
+
 
 }

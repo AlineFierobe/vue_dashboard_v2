@@ -36,7 +36,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("user", ["datas", "isLoading"]),
+    ...mapState("user", ["current", "isLoading"]),
   },
   methods: {
     ...mapMutations("user", ["fetchCurrentUser"]),
@@ -45,7 +45,7 @@ export default {
       var CryptoJS = require("crypto-js");
       this.password = CryptoJS.MD5(this.password).toString();
       const dataForm = {
-        id: this.datas.id,
+        id: this.current.id,
         password: this.password,
       };
       this.$store.dispatch("user/updatePassword", dataForm);

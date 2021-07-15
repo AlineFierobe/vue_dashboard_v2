@@ -21,5 +21,7 @@ export default {
 
   toggleMenu(state) {
     state.openMenu = !state.openMenu;
-  }
+  },
+
+
 }

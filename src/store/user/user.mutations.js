@@ -1,24 +1,23 @@
 export default {
-  displayUser(state, user) {
-    state.datas = user;
+  displayUser(state, users) {
+    state.datas = users;
   },
 
   updateIsLoading(state, isLoading) {
     state.isLoading = isLoading;
   },
 
-  signinSuccess(state, data) {
+  signinSuccess(state, user) {
     state.isLoading = false;
     state.errors = [];
     state.isLoggedIn = true;
-    delete data.password;
-    state.datas = data;
-    localStorage.setItem('user', data.id);
+    delete user.password;
+    state.current = user;
+    localStorage.setItem('user', user.id);
     localStorage.setItem('session', new Date().getTime());
   },
 
   signError(state, errors) {
-    console.log(errors);
     state.errors = errors;
   },
 
@@ -37,5 +36,5 @@ export default {
 
   updateUser(state, user) {
     state.datas = user;
-  }
+  },
 }
