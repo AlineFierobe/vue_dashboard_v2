@@ -24,7 +24,7 @@
         </div>
         <div>
           <label for="lastName">Petite Phrase</label>
-          <textarea v-model="current.more" class="medium" required></textarea>
+          <textarea v-model="current.more" class="medium"></textarea>
         </div>
       </div>
       <div class="two-btn">
