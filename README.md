@@ -11,9 +11,10 @@ Organize your work with a custom Dashboard, register your projects, tasks and me
 ## How to start
 
 - _first_: clone the repo on your machine
-- _second_: run the command `npm install` to get all dependencies
-- _third_: run the command `npm run serve` to lunch the project on your machine
-- _fourth_: update backend connexion in src/config/cnx.backend.js
+- _second_: run the command `cd front-dashboard_v2`
+- _third_: run the command `npm install` to get all dependencies
+- _fourth_: run the command `npm run serve` to lunch the project on your machine
+- _fifth_: update backend connexion in src/config/cnx.backend.js my original backend is available here (https://github.com/AlineFierobe/back-dashboard)
 
 ## Build with
 
