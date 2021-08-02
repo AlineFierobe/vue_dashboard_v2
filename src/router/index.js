@@ -7,7 +7,6 @@ import About from "../views/utils/About";
 import UpdateWebsite from "../views/website/UpdateInfo";
 import Login from "../views/utils/Login";
 import Logout from "../views/utils/Logout";
-import AccessDenied from "../views/utils/components/AccessDenied";
 import Today from "../views/utils/components/Today";
 
 // Projects
@@ -54,12 +53,6 @@ const routes = [
         path: "",
         name: "Today",
         component: Today
-      },
-      // ACCESS DENIED
-      {
-        path: "access-denied",
-        name: "AccessDenied",
-        component: AccessDenied
       },
       // WEBSITE
       {
