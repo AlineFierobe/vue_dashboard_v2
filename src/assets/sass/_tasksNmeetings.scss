@@ -64,6 +64,19 @@
     align-self: start;
     white-space: pre-line;
     line-height: 2rem;
+    ul {
+      list-style: none;
+      line-height: 1.5rem;
+      li {
+        margin-left: 5rem;
+        &::before {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          content: "\f22d";
+          margin-right: 1rem;
+        }
+      }
+    }
     @include mobile {
       height: auto;
     }

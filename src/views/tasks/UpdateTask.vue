@@ -59,6 +59,10 @@
       <div class="one-col">
         <div>
           <label>Description</label>
+          <TextEditButtons
+            :textBox="current.description"
+            @changed="modifiedText"
+          />
           <textarea v-model="current.description" class="large"></textarea>
         </div>
       </div>
@@ -80,9 +84,11 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+import TextEditButtons from "../../components/TextEditButtons.vue";
 
 export default {
   name: "UpdateTask",
+  components: { TextEditButtons },
   data() {
     return {};
   },
@@ -95,6 +101,9 @@ export default {
   methods: {
     ...mapMutations("tasks", ["updateCurrent", "updateTypes"]),
     ...mapMutations("global", ["getStatus"]),
+    modifiedText(modified) {
+      this.current.description = modified;
+    },
     trySubmit() {
       this.$store.dispatch("tasks/updateTask", this.current);
     },

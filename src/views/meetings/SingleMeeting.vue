@@ -80,9 +80,7 @@
           </div>
         </div>
       </div>
-      <div class="description" v-if="!current.report">
-        {{ current.description }}
-      </div>
+      <div class="description myDesc" v-if="!current.report"></div>
       <div class="description report" v-else>
         <div class="descr">
           {{ current.description }}
@@ -157,6 +155,21 @@ export default {
     const today = new Date();
     this.$store.dispatch("global/dateToCompare", today);
     this.$store.dispatch("global/timeToCompare", today);
+  },
+
+  updated() {
+    let myDescription = document.querySelector(".myDesc");
+    let description = document.querySelector(".descr");
+    if (myDescription) {
+      myDescription.innerHTML = this.current.description;
+    }
+    if (description) {
+      description.innerHTML = this.current.description;
+    }
+    let report = document.querySelector(".rep");
+    if (report) {
+      report.innerHTML = this.current.report;
+    }
   },
 };
 </script>

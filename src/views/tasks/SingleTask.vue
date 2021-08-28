@@ -116,5 +116,10 @@ export default {
     const today = new Date();
     this.$store.dispatch("global/dateToCompare", today);
   },
+
+  updated() {
+    let description = document.querySelector(".description");
+    description.innerHTML = this.current.description;
+  },
 };
 </script>

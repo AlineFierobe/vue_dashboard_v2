@@ -66,6 +66,10 @@
       <div class="one-col">
         <div>
           <label>description</label>
+          <TextEditButtons
+            :textBox="current.description"
+            @changed="modifiedText"
+          />
           <textarea
             v-model="current.description"
             class="small"
@@ -91,9 +95,11 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import TextEditButtons from "../../components/TextEditButtons.vue";
 
 export default {
   name: "UpdateProject",
+  components: { TextEditButtons },
   data() {
     return {};
   },
@@ -106,6 +112,9 @@ export default {
   methods: {
     ...mapMutations("projects", ["currentProject", "updateTypes"]),
 
+    modifiedText(modified) {
+      this.current.description = modified;
+    },
     tryUpdate() {
       this.$store.dispatch("projects/updateProject", this.current);
     },
@@ -122,7 +131,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../assets/sass/style.scss";
 .myForm {
-  width: 60%;
+  width: 80%;
   .btn-dark {
     cursor: pointer;
   }

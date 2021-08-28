@@ -78,6 +78,10 @@
       <div class="one-col">
         <div>
           <label>Description</label>
+          <TextEditButtons
+            :textBox="form.description"
+            @changed="modifiedText"
+          />
           <textarea v-model="form.description" class="medium"></textarea>
         </div>
       </div>
@@ -96,9 +100,11 @@
 <script>
 import _ from "lodash";
 import { mapState } from "vuex";
+import TextEditButtons from "../../components/TextEditButtons.vue";
 
 export default {
   name: "CreateTask",
+  components: { TextEditButtons },
   data() {
     return {
       form: {
@@ -124,6 +130,10 @@ export default {
   },
 
   methods: {
+    modifiedText(modified) {
+      this.form.description = modified;
+    },
+
     trySubmit() {
       this.$store.dispatch("tasks/createTask", this.form);
     },
